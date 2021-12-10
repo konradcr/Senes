@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		71292C302763BA4500F93BE4 /* Recherche.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C2C2763BA4500F93BE4 /* Recherche.swift */; };
+		71292C302763BA4500F93BE4 /* ActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C2C2763BA4500F93BE4 /* ActivitiesView.swift */; };
 		71292C312763BA4500F93BE4 /* InterestActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C2D2763BA4500F93BE4 /* InterestActivity.swift */; };
 		71292C322763BA4500F93BE4 /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C2E2763BA4500F93BE4 /* ActivityCard.swift */; };
 		71292C332763BA4500F93BE4 /* ActivityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C2F2763BA4500F93BE4 /* ActivityInfo.swift */; };
@@ -26,6 +26,7 @@
 		71292C4F2763C15500F93BE4 /* FriendsSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C432763C15500F93BE4 /* FriendsSegmentView.swift */; };
 		71292C502763C15500F93BE4 /* ActivitiesSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C442763C15500F93BE4 /* ActivitiesSegmentView.swift */; };
 		71292C512763C15500F93BE4 /* CertificationAsked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C452763C15500F93BE4 /* CertificationAsked.swift */; };
+		714DFB872763D7D500DAA1F3 /* interests.json in Resources */ = {isa = PBXBuildFile; fileRef = 714DFB862763D7D500DAA1F3 /* interests.json */; };
 		71BEFF872763AF4F00BF197F /* SenesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BEFF862763AF4F00BF197F /* SenesApp.swift */; };
 		71BEFF8B2763AF5200BF197F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71BEFF8A2763AF5200BF197F /* Assets.xcassets */; };
 		71BEFF8E2763AF5200BF197F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71BEFF8D2763AF5200BF197F /* Preview Assets.xcassets */; };
@@ -44,7 +45,6 @@
 		71BEFFC02763AF8000BF197F /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BEFFA82763AF8000BF197F /* Messages.swift */; };
 		71BEFFC12763AF8000BF197F /* chats.json in Resources */ = {isa = PBXBuildFile; fileRef = 71BEFFA92763AF8000BF197F /* chats.json */; };
 		71BEFFC22763AF8000BF197F /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 71BEFFAA2763AF8000BF197F /* users.json */; };
-		71BEFFC32763AF8000BF197F /* Interests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BEFFAB2763AF8000BF197F /* Interests.swift */; };
 		71BEFFC42763AF8000BF197F /* posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 71BEFFAC2763AF8000BF197F /* posts.json */; };
 		71BEFFC52763AF8000BF197F /* activities.json in Resources */ = {isa = PBXBuildFile; fileRef = 71BEFFAD2763AF8000BF197F /* activities.json */; };
 		71BEFFC62763AF8000BF197F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BEFFAF2763AF8000BF197F /* Date.swift */; };
@@ -55,7 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		71292C2C2763BA4500F93BE4 /* Recherche.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recherche.swift; sourceTree = "<group>"; };
+		71292C2C2763BA4500F93BE4 /* ActivitiesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesView.swift; sourceTree = "<group>"; };
 		71292C2D2763BA4500F93BE4 /* InterestActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestActivity.swift; sourceTree = "<group>"; };
 		71292C2E2763BA4500F93BE4 /* ActivityCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
 		71292C2F2763BA4500F93BE4 /* ActivityInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityInfo.swift; sourceTree = "<group>"; };
@@ -74,6 +74,7 @@
 		71292C432763C15500F93BE4 /* FriendsSegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsSegmentView.swift; sourceTree = "<group>"; };
 		71292C442763C15500F93BE4 /* ActivitiesSegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesSegmentView.swift; sourceTree = "<group>"; };
 		71292C452763C15500F93BE4 /* CertificationAsked.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificationAsked.swift; sourceTree = "<group>"; };
+		714DFB862763D7D500DAA1F3 /* interests.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = interests.json; sourceTree = "<group>"; };
 		71BEFF832763AF4F00BF197F /* Senes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Senes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71BEFF862763AF4F00BF197F /* SenesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenesApp.swift; sourceTree = "<group>"; };
 		71BEFF8A2763AF5200BF197F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,7 +94,6 @@
 		71BEFFA82763AF8000BF197F /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		71BEFFA92763AF8000BF197F /* chats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = chats.json; sourceTree = "<group>"; };
 		71BEFFAA2763AF8000BF197F /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
-		71BEFFAB2763AF8000BF197F /* Interests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interests.swift; sourceTree = "<group>"; };
 		71BEFFAC2763AF8000BF197F /* posts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = posts.json; sourceTree = "<group>"; };
 		71BEFFAD2763AF8000BF197F /* activities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = activities.json; sourceTree = "<group>"; };
 		71BEFFAF2763AF8000BF197F /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 		71BEFF9A2763AF8000BF197F /* Activities */ = {
 			isa = PBXGroup;
 			children = (
-				71292C2C2763BA4500F93BE4 /* Recherche.swift */,
+				71292C2C2763BA4500F93BE4 /* ActivitiesView.swift */,
 				71292C2D2763BA4500F93BE4 /* InterestActivity.swift */,
 				71292C2E2763BA4500F93BE4 /* ActivityCard.swift */,
 				71292C2F2763BA4500F93BE4 /* ActivityInfo.swift */,
@@ -240,7 +240,7 @@
 			children = (
 				71BEFF8A2763AF5200BF197F /* Assets.xcassets */,
 				71BEFFA82763AF8000BF197F /* Messages.swift */,
-				71BEFFAB2763AF8000BF197F /* Interests.swift */,
+				714DFB862763D7D500DAA1F3 /* interests.json */,
 				71BEFFA92763AF8000BF197F /* chats.json */,
 				71BEFFAA2763AF8000BF197F /* users.json */,
 				71BEFFAC2763AF8000BF197F /* posts.json */,
@@ -326,6 +326,7 @@
 				71BEFF8E2763AF5200BF197F /* Preview Assets.xcassets in Resources */,
 				71BEFF8B2763AF5200BF197F /* Assets.xcassets in Resources */,
 				71BEFFC12763AF8000BF197F /* chats.json in Resources */,
+				714DFB872763D7D500DAA1F3 /* interests.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,9 +362,8 @@
 				71292C462763C15500F93BE4 /* CertificationView.swift in Sources */,
 				71292C512763C15500F93BE4 /* CertificationAsked.swift in Sources */,
 				71292C4A2763C15500F93BE4 /* AskingCertificationView.swift in Sources */,
-				71BEFFC32763AF8000BF197F /* Interests.swift in Sources */,
 				71BEFFBA2763AF8000BF197F /* PostView.swift in Sources */,
-				71292C302763BA4500F93BE4 /* Recherche.swift in Sources */,
+				71292C302763BA4500F93BE4 /* ActivitiesView.swift in Sources */,
 				71292C4C2763C15500F93BE4 /* AboutSegmentView.swift in Sources */,
 				71292C4B2763C15500F93BE4 /* MyProfilView.swift in Sources */,
 				71292C502763C15500F93BE4 /* ActivitiesSegmentView.swift in Sources */,

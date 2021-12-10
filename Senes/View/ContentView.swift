@@ -13,6 +13,7 @@ struct ContentView: View {
     
     var posts: [Post] = Bundle.main.decode([Post].self, from: "posts.json")
     var activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json")
+    var interests: [Interest] = Bundle.main.decode([Interest].self, from: "interests.json")
     
     var body: some View {
         if isShowingOnboarding {
@@ -26,7 +27,7 @@ struct ContentView: View {
                         Text("Communauté")
                     }
 
-                Recherche(interests: Interest.interests, activities: activities)
+                ActivitiesView(interests: interests, activities: activities)
                     .tabItem{
                         Image(systemName: "calendar")
                         Text("Activités")

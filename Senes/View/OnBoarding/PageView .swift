@@ -58,7 +58,7 @@ struct PageView : View {
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(color)
             .sheet(isPresented: $isShowingInscription, onDismiss: { isShowingOnboarding = false }){
-                InscriptionView( currentUser: currentUser, isShowingInscription: $isShowingInscription, interests: Interest.interests)
+                InscriptionView(currentUser: currentUser, isShowingInscription: $isShowingInscription)
                 
             }
     }

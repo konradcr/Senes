@@ -22,10 +22,9 @@ struct InscriptionView: View {
     @State var isShowingImagePicker = false
     @State var description : String = ""
     
-    var interests : [Interest]
-    
     var users: [Person] = Bundle.main.decode([Person].self, from: "users.json")
     var activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json")
+    var interests: [Interest] = Bundle.main.decode([Interest].self, from: "interests.json")
     
     
     var body: some View {
@@ -114,7 +113,9 @@ struct InscriptionView: View {
 }
 
 struct InscriptionView_Previews: PreviewProvider {
+    static var interests: [Interest] = Bundle.main.decode([Interest].self, from: "interests.json")
+    
     static var previews: some View {
-        InscriptionView(currentUser: CurrentUser(), isShowingInscription: .constant(true), interests: Interest.interests)
+        InscriptionView(currentUser: CurrentUser(), isShowingInscription: .constant(true), interests: interests)
     }
 }

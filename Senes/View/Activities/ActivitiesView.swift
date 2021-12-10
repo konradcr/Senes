@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Recherche: View {
+struct ActivitiesView: View {
     let interests : [Interest]
     let activities: [Activity]
     
@@ -58,11 +58,12 @@ struct Recherche: View {
     
 }
 
-struct Recherche_Previews: PreviewProvider {
+struct ActivitiesView_Previews: PreviewProvider {
     static var activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json")
+    static var interests: [Interest] = Bundle.main.decode([Interest].self, from: "interests.json")
     
     static var previews: some View {
-        Recherche(interests: Interest.interests, activities: activities)
+        ActivitiesView(interests: interests, activities: activities)
     }
 }
 

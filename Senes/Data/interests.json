@@ -1,0 +1,32 @@
+[
+    {
+        "id": "dfa7c66a-d5de-4ab3-bcc0-2a418c1d39f8",
+        "category": "Arts",
+        "catImage": "arts",
+    },
+    {
+        "id": "ea7e5916-59e9-11ec-bf63-0242ac130002",
+        "category": "Couture",
+        "catImage": "couture",
+    },
+    {
+        "id": "ee5a5bfc-59e9-11ec-bf63-0242ac130002",
+        "category": "Cuisine",
+        "catImage": "cuisine",
+    },
+    {
+        "id": "f1f20d32-59e9-11ec-bf63-0242ac130002",
+        "category": "Jardinage",
+        "catImage": "jardinage",
+    },
+    {
+        "id": "f603ba88-59e9-11ec-bf63-0242ac130002",
+        "category": "Littérature",
+        "catImage": "litterature",
+    },
+    {
+        "id": "f98682b2-59e9-11ec-bf63-0242ac130002",
+        "category": "Sport",
+        "catImage": "sport",
+    }
+]

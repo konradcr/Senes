@@ -133,7 +133,7 @@ struct Message: Identifiable, Codable {
 }
 
 struct Activity: Identifiable, Codable {
-    var id: String = "8ee170ea-4e40-48d2-ada7-1e1143209be2"
+    var id: String = UUID().uuidString
     var title: String = ""
     var userID: String = ""
     var location: String = ""
@@ -162,9 +162,8 @@ struct LoaderPicture {
     var image: Image?
 }
 
-struct Interest : Identifiable {
-    var id = UUID()
+struct Interest: Identifiable, Codable {
+    let id: String
     let category : CenterOfInterest
     let catImage : String
-    
 }
