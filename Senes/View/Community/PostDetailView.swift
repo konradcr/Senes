@@ -19,7 +19,7 @@ struct PostDetailView: View {
             VStack {
                 VStack{
                     HStack{
-                        NavigationLink(destination: Text("DetailProfil")/*ProfilOtherUserView(user: post.user, currentUser: currentUser )*/) {
+                        NavigationLink(destination: ProfilOtherUserView(user: user, currentUser: currentUser)) {
                             Image(user.profilPic)
                                 .resizable()
                                 .frame(width: 50, height:50)

@@ -14,15 +14,19 @@ struct InscriptionView: View {
     
     @Binding var isShowingInscription: Bool
     
-    @State var nom: String = "Germaine"
-    @State var ville: String = "Lyon"
+    @State var nom: String = ""
+    @State var ville: String = ""
     @State var email : String = ""
     @State var interestsChoosed : [CenterOfInterest] = []
-    @State var profilPic : UIImage? = UIImage(systemName: "person.circle")
+    @State var profilPic: UIImage?
     @State var isShowingImagePicker = false
     @State var description : String = ""
     
     var interests : [Interest]
+    
+    var users: [Person] = Bundle.main.decode([Person].self, from: "users.json")
+    var activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json")
+    
     
     var body: some View {
         NavigationView{
@@ -93,16 +97,16 @@ struct InscriptionView: View {
         }
     }
     func createUser() {
-        currentUser.name = nom
-        currentUser.city = ville
-        currentUser.centersOfInterest = interestsChoosed
-        currentUser.profilPic = "Germaine"
-        currentUser.friends = []
-        currentUser.chats = []
-        currentUser.myPost = []
-        currentUser.activities = []
-        currentUser.isCertified = false
-        currentUser.description = description
+//        currentUser.name = nom
+//        currentUser.city = ville
+//        currentUser.centersOfInterest = interestsChoosed
+//        currentUser.profilPic
+        currentUser.friends = users.filter { $0.isYourFriend == true }
+//        currentUser.chats = []
+//        currentUser.myPost = []
+        currentUser.activities = activities.filter { $0.participating == true }
+//        currentUser.isCertified = false
+//        currentUser.description = description
         
         isShowingInscription = false
         

@@ -31,14 +31,14 @@ struct ContentView: View {
                         Image(systemName: "calendar")
                         Text("Activités")
                     }
-                Text("Messagerie")
-//                Messagerie()
+
+                Messagerie()
                     .tabItem{
                         Image(systemName: "bubble.left.and.bubble.right.fill")
                         Text("Messagerie")
                     }
-                Text("Profil")
-//                MyProfilView(currentUser: currentUser)
+
+                MyProfilView(currentUser: currentUser)
                     .tabItem{
                         Image(systemName: "person.circle.fill")
                         Text("Mon Profil")

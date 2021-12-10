@@ -37,9 +37,9 @@ class Person: Identifiable, Hashable, Equatable, ObservableObject, Codable {
     @Published var id: String = "c24af5af-8fc0-4f9d-bb8f-1a329bd16220"
     @Published var name: String = "Germaine"
     @Published var city: String = "Lyon"
-    @Published var description: String = ""
-    @Published var profilPic : String = "person.circle"
-    @Published var centersOfInterest: [CenterOfInterest] = []
+    @Published var description: String = "Passionnée d'art et de culture j'adore echanger et rencontrer de nouvelles personnnes. N'hésites pas à m'ajouter en amis pour que l'on puisse discuter à propos de nos centres d'intérêts en commun !"
+    @Published var profilPic : String = "Germaine"
+    @Published var centersOfInterest: [CenterOfInterest] = [.arts,.jardinage]
     @Published var isCertified: Bool = false
     @Published var isYourFriend = Bool()
     
