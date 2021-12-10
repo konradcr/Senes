@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71292C302763BA4500F93BE4 /* Recherche.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C2C2763BA4500F93BE4 /* Recherche.swift */; };
+		71292C312763BA4500F93BE4 /* InterestActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C2D2763BA4500F93BE4 /* InterestActivity.swift */; };
+		71292C322763BA4500F93BE4 /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C2E2763BA4500F93BE4 /* ActivityCard.swift */; };
+		71292C332763BA4500F93BE4 /* ActivityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C2F2763BA4500F93BE4 /* ActivityInfo.swift */; };
 		71BEFF872763AF4F00BF197F /* SenesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BEFF862763AF4F00BF197F /* SenesApp.swift */; };
 		71BEFF8B2763AF5200BF197F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71BEFF8A2763AF5200BF197F /* Assets.xcassets */; };
 		71BEFF8E2763AF5200BF197F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71BEFF8D2763AF5200BF197F /* Preview Assets.xcassets */; };
@@ -36,6 +40,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		71292C2C2763BA4500F93BE4 /* Recherche.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recherche.swift; sourceTree = "<group>"; };
+		71292C2D2763BA4500F93BE4 /* InterestActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestActivity.swift; sourceTree = "<group>"; };
+		71292C2E2763BA4500F93BE4 /* ActivityCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
+		71292C2F2763BA4500F93BE4 /* ActivityInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityInfo.swift; sourceTree = "<group>"; };
 		71BEFF832763AF4F00BF197F /* Senes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Senes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71BEFF862763AF4F00BF197F /* SenesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenesApp.swift; sourceTree = "<group>"; };
 		71BEFF8A2763AF5200BF197F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,11 +104,10 @@
 			isa = PBXGroup;
 			children = (
 				71BEFF862763AF4F00BF197F /* SenesApp.swift */,
-				71BEFFA72763AF8000BF197F /* Data */,
-				71BEFFAE2763AF8000BF197F /* Extensions */,
 				71BEFF942763AF8000BF197F /* Models */,
+				71BEFFA72763AF8000BF197F /* Data */,
 				71BEFF972763AF8000BF197F /* View */,
-				71BEFF8A2763AF5200BF197F /* Assets.xcassets */,
+				71BEFFAE2763AF8000BF197F /* Extensions */,
 				71BEFF8C2763AF5200BF197F /* Preview Content */,
 			);
 			path = Senes;
@@ -126,11 +133,11 @@
 		71BEFF972763AF8000BF197F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				71BEFF982763AF8000BF197F /* Profil */,
-				71BEFF992763AF8000BF197F /* Messages */,
-				71BEFF9A2763AF8000BF197F /* Activities */,
-				71BEFF9B2763AF8000BF197F /* Community */,
 				71BEFFA22763AF8000BF197F /* ContentView.swift */,
+				71BEFF9B2763AF8000BF197F /* Community */,
+				71BEFF9A2763AF8000BF197F /* Activities */,
+				71BEFF992763AF8000BF197F /* Messages */,
+				71BEFF982763AF8000BF197F /* Profil */,
 				71BEFFA32763AF8000BF197F /* OnBoarding */,
 			);
 			path = View;
@@ -153,6 +160,10 @@
 		71BEFF9A2763AF8000BF197F /* Activities */ = {
 			isa = PBXGroup;
 			children = (
+				71292C2C2763BA4500F93BE4 /* Recherche.swift */,
+				71292C2D2763BA4500F93BE4 /* InterestActivity.swift */,
+				71292C2E2763BA4500F93BE4 /* ActivityCard.swift */,
+				71292C2F2763BA4500F93BE4 /* ActivityInfo.swift */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -183,10 +194,11 @@
 		71BEFFA72763AF8000BF197F /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				71BEFF8A2763AF5200BF197F /* Assets.xcassets */,
 				71BEFFA82763AF8000BF197F /* Messages.swift */,
+				71BEFFAB2763AF8000BF197F /* Interests.swift */,
 				71BEFFA92763AF8000BF197F /* chats.json */,
 				71BEFFAA2763AF8000BF197F /* users.json */,
-				71BEFFAB2763AF8000BF197F /* Interests.swift */,
 				71BEFFAC2763AF8000BF197F /* posts.json */,
 				71BEFFAD2763AF8000BF197F /* activities.json */,
 			);
@@ -287,17 +299,21 @@
 				71BEFFB92763AF8000BF197F /* NewActivity.swift in Sources */,
 				71BEFFC72763AF8000BF197F /* ExtensionsColors.swift in Sources */,
 				71BEFFB52763AF8000BF197F /* MessagerieViewModel.swift in Sources */,
+				71292C312763BA4500F93BE4 /* InterestActivity.swift in Sources */,
 				71BEFFC62763AF8000BF197F /* Date.swift in Sources */,
+				71292C322763BA4500F93BE4 /* ActivityCard.swift in Sources */,
 				71BEFFC02763AF8000BF197F /* Messages.swift in Sources */,
 				71BEFFBB2763AF8000BF197F /* CustomTextView.swift in Sources */,
 				71BEFF872763AF4F00BF197F /* SenesApp.swift in Sources */,
 				71BEFFBE2763AF8000BF197F /* InscriptionView.swift in Sources */,
 				71BEFFC32763AF8000BF197F /* Interests.swift in Sources */,
 				71BEFFBA2763AF8000BF197F /* PostView.swift in Sources */,
+				71292C302763BA4500F93BE4 /* Recherche.swift in Sources */,
 				71BEFFBD2763AF8000BF197F /* PageView .swift in Sources */,
 				71BEFFC92763AF8000BF197F /* ImagePicker.swift in Sources */,
 				71BEFFB72763AF8000BF197F /* Communaute.swift in Sources */,
 				71BEFFBF2763AF8000BF197F /* OnboardingView.swift in Sources */,
+				71292C332763BA4500F93BE4 /* ActivityInfo.swift in Sources */,
 				71BEFFCA2763AF8000BF197F /* Modifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,6 +12,7 @@ struct ContentView: View {
     @StateObject var currentUser = CurrentUser()
     
     var posts: [Post] = Bundle.main.decode([Post].self, from: "posts.json")
+    var activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json")
     
     var body: some View {
         if isShowingOnboarding {
@@ -24,8 +25,8 @@ struct ContentView: View {
                         Image(systemName: "person.3.fill")
                         Text("Communauté")
                     }
-                Text("Recherche")
-//                Recherche(interests: Interest.interests)
+
+                Recherche(interests: Interest.interests, activities: activities)
                     .tabItem{
                         Image(systemName: "calendar")
                         Text("Activités")

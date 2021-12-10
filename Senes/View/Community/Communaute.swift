@@ -23,7 +23,7 @@ struct Communaute: View {
             ZStack {
                 VStack{
                     PostView(currentUser: currentUser, sendNewPost: sendNewPost, loaderPicture: $loaderPicture, posts: posts)
-//                    PostView(user: currentUser, loaderPicture: $loaderPicture, posts: posts)
+
                     List(posts) { post in
                         NavigationLink(destination:PostDetailView(post: post, currentUser: currentUser)) {
                             ExtractPost(post: post)
@@ -50,7 +50,7 @@ struct Communaute: View {
         .sheet(isPresented: $loaderPicture.isImagePickerShown, onDismiss: loadImage) {
             ImagePicker(inputImage: $loaderPicture.inputImage, sourceType: loaderPicture.sourceType) }
         .sheet(isPresented: $isNewActivityShow) {
-            NewActivity(user: currentUser, isPresented: $isNewActivityShow, centerOfInterest: .arts) }
+            NewActivity(user: currentUser, isPresented: $isNewActivityShow) }
         .alert("Votre post a bien eté envoyé sur le fil", isPresented: $sendNewPost) {
             Button("OK", role: .cancel) { }
         }

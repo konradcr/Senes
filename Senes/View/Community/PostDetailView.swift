@@ -39,9 +39,11 @@ struct PostDetailView: View {
             }
             .padding()
 
-            Image(post.postImage ?? "")
-                .resizable()
-                .frame(maxWidth: .infinity, maxHeight: 300)
+            if let image = post.postImage {
+                Image(image)
+                    .resizable()
+                    .frame(maxWidth: .infinity, maxHeight: 300)
+            }
 
             Spacer()
 

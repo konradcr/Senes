@@ -150,7 +150,7 @@ struct Activity: Identifiable, Codable {
 struct Post: Identifiable, Codable  {
     var id: String = UUID().uuidString
     var datePost: String = Date().descriptiveString(dateStyle: .medium)
-    var userID: String = ""
+    var userID: String = UUID().uuidString
     var postImage: String?
     var description: String = ""
 }

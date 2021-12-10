@@ -46,10 +46,12 @@ struct ExtractPost: View {
             Text(post.description)
                 .padding(.bottom)
             
-            Image(post.postImage ?? "")
-                .resizable()
-                .frame(maxWidth: .infinity,maxHeight:200 , alignment: .center)
-                .cornerRadius(10)
+            if let image = post.postImage {
+                Image(image)
+                    .resizable()
+                    .frame(maxWidth: .infinity,maxHeight:200 , alignment: .center)
+                    .cornerRadius(10)
+            }
             
             
             

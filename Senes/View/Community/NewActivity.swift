@@ -17,9 +17,9 @@ struct NewActivity: View {
     
     @State private var dateStart = Date()
     @State private var dateEnd = Date()
-
     
-    @State var centerOfInterest : CenterOfInterest
+    
+    @State var centerOfInterest : CenterOfInterest = .arts
     @State var loaderPicture = LoaderPicture(isImagePickerShown: false,
                                              sourceType: UIImagePickerController.SourceType.photoLibrary)
     
@@ -73,62 +73,62 @@ struct NewActivity: View {
                           format: .number)
                     .keyboardType(.numberPad)
                 
-            
+                
                 HStack{
                     Spacer()
-            Button{
-                loaderPicture.isImagePickerShown.toggle()
-                
-            } label: {
-                
-                if loaderPicture.image != nil {
-                    loaderPicture.image!
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 40)
-                        .padding()
-                } else {
-                    Image(systemName: "camera.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 40)
-                        .padding()
-                }
-            }
-            .foregroundColor(.white)
-            .background(Color.greenContent)
-            .cornerRadius(10)
-            .shadow(color: .gray, radius: 1, x: -3, y: 3)
+                    Button{
+                        loaderPicture.isImagePickerShown.toggle()
+                        
+                    } label: {
+                        
+                        if loaderPicture.image != nil {
+                            loaderPicture.image!
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 40)
+                                .padding()
+                        } else {
+                            Image(systemName: "camera.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 40)
+                                .padding()
+                        }
+                    }
+                    .foregroundColor(.white)
+                    .background(Color.greenContent)
+                    .cornerRadius(10)
+                    .shadow(color: .gray, radius: 1, x: -3, y: 3)
                     Spacer()
                 }
                 TextView(textDescription: $newActivity.description)
-                .border(.gray, width: 2)
-                .cornerRadius(4)
-                .padding().frame(height: UIScreen.main.bounds.size.height / 4)
+                    .border(.gray, width: 2)
+                    .cornerRadius(4)
+                    .padding().frame(height: UIScreen.main.bounds.size.height / 4)
                 HStack{
                     Spacer()
-                
-            Button{
-
-                newActivity.dateStartActivity = dateStart.descriptiveString(dateStyle: .medium)
-                newActivity.dateEndActivity = dateEnd.descriptiveString(dateStyle: .medium)
-                user.activities.append(newActivity)
-//                newActivity = .empty
-                sendNewPost = true
-                
-            } label: {
-                Text("Poster sur le fil")
-                    .bold()
-            }
-            .padding()
-            .foregroundColor(.white)
-            .background(colorBtnIfIsValid)
-            .cornerRadius(10)
-            .shadow(color: .gray, radius: 1, x: -3, y: 3)
+                    
+                    Button{
+                        
+                        newActivity.dateStartActivity = dateStart.descriptiveString(dateStyle: .medium)
+                        newActivity.dateEndActivity = dateEnd.descriptiveString(dateStyle: .medium)
+                        user.activities.append(newActivity)
+                        //                newActivity = .empty
+                        sendNewPost = true
+                        
+                    } label: {
+                        Text("Poster sur le fil")
+                            .bold()
+                    }
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(colorBtnIfIsValid)
+                    .cornerRadius(10)
+                    .shadow(color: .gray, radius: 1, x: -3, y: 3)
                     Spacer()
                 }
                 .disabled(isValid)
-        }
+            }
         }.sheet(isPresented: $loaderPicture.isImagePickerShown, onDismiss: loadImage) {
             ImagePicker(inputImage: self.$loaderPicture.inputImage, sourceType: self.loaderPicture.sourceType) }
         .alert(isPresented: $sendNewPost) {
@@ -140,8 +140,6 @@ struct NewActivity: View {
                 })
             )
         }.padding()
-
-
     }
     
     func loadImage() {
@@ -152,3 +150,9 @@ struct NewActivity: View {
 
 
 
+
+struct NewActivity_Previews: PreviewProvider {
+    static var previews: some View {
+        NewActivity(user: CurrentUser(), isPresented: .constant(true))
+    }
+}

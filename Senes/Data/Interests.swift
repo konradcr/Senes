@@ -8,14 +8,14 @@
 import Foundation
 
 extension Interest{
-    static var art : Interest = Interest(category: .arts, catImage: "interest-6")
-    static var jardinage: Interest = Interest(category: .jardinage, catImage: "interest-1")
-    static var littérature : Interest = Interest(category: .literature, catImage: "interest-3")
-    static var sport : Interest = Interest(category: .sport, catImage: "interest-4")
-    static var cuisine : Interest = Interest(category: .cuisine, catImage: "interest-5")
-    static var couture: Interest = Interest(category: .couture, catImage: "interest-2")
+    static var art : Interest = Interest(category: .arts, catImage: "arts")
+    static var jardinage: Interest = Interest(category: .jardinage, catImage: "jardinage")
+    static var litterature : Interest = Interest(category: .literature, catImage: "litterature")
+    static var sport : Interest = Interest(category: .sport, catImage: "sport")
+    static var cuisine : Interest = Interest(category: .cuisine, catImage: "cuisine")
+    static var couture: Interest = Interest(category: .couture, catImage: "couture")
     
     static var interests : [Interest]{
-        [art,jardinage,littérature,sport,cuisine,couture]
+        [art,jardinage,litterature,sport,cuisine,couture]
     }
 }
