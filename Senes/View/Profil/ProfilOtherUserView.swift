@@ -24,7 +24,15 @@ struct ProfilOtherUserView: View {
                     .buttonPrincipalStyle(colorBck: Color.greenAction, foregroundColor: Color.white)
                     Spacer()
                     Button(user.isYourFriend ? "Retirer" : "Ajouter") {
-                            // action
+                        if user.isYourFriend {
+                            if let index = currentUser.friends.firstIndex(of: user) {
+                                currentUser.friends.remove(at: index)
+                                self.user.isYourFriend = false
+                            }
+                        } else {
+                            currentUser.friends.append(user)
+                            self.user.isYourFriend = true
+                        }
                     }
                     .font(.body)
                     .buttonPrincipalStyle(colorBck: user.isYourFriend ? Color.red.opacity(0.7) : Color.grayBackground, foregroundColor: user.isYourFriend ? Color.white : Color.black)

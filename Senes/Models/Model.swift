@@ -26,10 +26,26 @@ class CurrentUser: Person {
             $0.dateStartActivity > $1.dateStartActivity
         }
     }
-    var friendsSorted: [Person] {
+    
+    func getFriendsInscription() -> [Person] {
+        let users: [Person] = Bundle.main.decode([Person].self, from: "users.json")
+        
+        let friends = users.filter { $0.isYourFriend == true }
         return friends.sorted {
             $0.name < $1.name
         }
+    }
+    
+    func getFriends() -> [Person] {
+        let friends = self.friends.filter { $0.isYourFriend == true }
+        return friends.sorted {
+            $0.name < $1.name
+        }
+    }
+    
+    func getActivities() -> [Activity] {
+        let activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json")
+        return activities.filter { $0.participating == true }
     }
 }
 
@@ -93,13 +109,6 @@ class Person: Identifiable, Hashable, Equatable, ObservableObject, Codable {
     }
     
     init() {}
-}
-
-
-struct Personne: Identifiable, Codable {
-    var id = UUID()
-    var name: String
-    let profilPic: String
 }
 
 

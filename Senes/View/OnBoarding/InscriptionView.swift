@@ -100,10 +100,10 @@ struct InscriptionView: View {
 //        currentUser.city = ville
 //        currentUser.centersOfInterest = interestsChoosed
 //        currentUser.profilPic
-        currentUser.friends = users.filter { $0.isYourFriend == true }
+        currentUser.friends = currentUser.getFriendsInscription()
 //        currentUser.chats = []
 //        currentUser.myPost = []
-        currentUser.activities = activities.filter { $0.participating == true }
+        currentUser.activities = currentUser.getActivities()
 //        currentUser.isCertified = false
 //        currentUser.description = description
         

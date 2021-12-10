@@ -18,44 +18,41 @@ struct ActivitiesView: View {
     
     var body: some View {
         NavigationView{
-            LazyVGrid(columns : gridLayout, alignment : .center){
-                
-                ForEach(interests){ interest in
+            ScrollView {
+                LazyVGrid(columns : gridLayout, alignment : .center){
                     
-                    NavigationLink(
-                        destination: InterestActivity(activities: activities, interest: interest.category),
-                        label: {
-                            ZStack(alignment: .leading){
-                                
-                                Image(interest.catImage)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(minWidth: 0, maxWidth: .infinity)
-                                    .frame(height:180)
-                                    .overlay(Color.black)
-                                    .opacity(0.45)
-                                    .cornerRadius(22)
-                                    .padding(.trailing,12)
-                                
+                    ForEach(interests){ interest in
+                        
+                        NavigationLink(destination: InterestActivity(activities: activities, interest: interest.category)) {
+                            
+                            ZStack(alignment: .leading) {
+                                GeometryReader { gr in
+                                    Image(interest.catImage)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(height: gr.size.width)
+                                        .overlay(Color.black.opacity(0.45))
+                                }
+                                .cornerRadius(20)
+                                .clipped()
+                                .aspectRatio(1, contentMode: .fit)
                                 HStack(alignment: .center){
                                     Text(interest.category.rawValue)
                                         .font(.title)
                                         .fontWeight(.semibold)
                                         .foregroundColor(.white)
-                                    
-                                }.padding(.all, 10)
-                                    .navigationTitle("Centre d'intérêts")
-                                
-                                
-                            }.padding(.leading, 12)
-                            
-                        })
+                                }
+                                .padding(.leading)
+                            }
+                            .padding()
+                        }
+                    }
                 }
             }
+            .padding()
+            .navigationTitle("Activités")
         }
-        
     }
-    
 }
 
 struct ActivitiesView_Previews: PreviewProvider {
