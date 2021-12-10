@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MessagerieRow: View {
     let chat: Chat
+    
     var body: some View {
         HStack(spacing: 20) {
             Image(chat.person.profilPic)

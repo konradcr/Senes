@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Messagerie: View {
     @StateObject var viewModel = MessagerieViewModel()
+    @ObservedObject var currentUser: CurrentUser
     @State private var query = ""
     
     var body: some View {
@@ -21,7 +22,7 @@ struct Messagerie: View {
                         MessagerieRow(chat: chat)
                         
                     NavigationLink(destination: {
-                       MessagerieView(chat: chat)
+                        MessagerieView(currentUser: currentUser, chat: chat)
                             .environmentObject(viewModel)
                     }) {
                        EmptyView()
@@ -47,14 +48,18 @@ struct Messagerie: View {
             .listStyle(PlainListStyle())
             .searchable(text: $query)
             .navigationTitle("Messagerie")
-            .navigationBarItems(trailing: Button(action: {}) {
-                Image(systemName: "square.and.pencil")
-                })
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {} label: {
+                        Image(systemName: "square.and.pencil")
+                    }
+                }
+            }
         }
     }
 }
 struct Messsagerie_Previews: PreviewProvider {
     static var previews: some View {
-        Messagerie()
+        Messagerie(currentUser: CurrentUser())
     }
 }

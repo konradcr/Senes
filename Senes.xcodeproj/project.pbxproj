@@ -43,7 +43,6 @@
 		71BEFFBE2763AF8000BF197F /* InscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BEFFA52763AF8000BF197F /* InscriptionView.swift */; };
 		71BEFFBF2763AF8000BF197F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BEFFA62763AF8000BF197F /* OnboardingView.swift */; };
 		71BEFFC02763AF8000BF197F /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BEFFA82763AF8000BF197F /* Messages.swift */; };
-		71BEFFC12763AF8000BF197F /* chats.json in Resources */ = {isa = PBXBuildFile; fileRef = 71BEFFA92763AF8000BF197F /* chats.json */; };
 		71BEFFC22763AF8000BF197F /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 71BEFFAA2763AF8000BF197F /* users.json */; };
 		71BEFFC42763AF8000BF197F /* posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 71BEFFAC2763AF8000BF197F /* posts.json */; };
 		71BEFFC52763AF8000BF197F /* activities.json in Resources */ = {isa = PBXBuildFile; fileRef = 71BEFFAD2763AF8000BF197F /* activities.json */; };
@@ -92,7 +91,6 @@
 		71BEFFA52763AF8000BF197F /* InscriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InscriptionView.swift; sourceTree = "<group>"; };
 		71BEFFA62763AF8000BF197F /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		71BEFFA82763AF8000BF197F /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
-		71BEFFA92763AF8000BF197F /* chats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = chats.json; sourceTree = "<group>"; };
 		71BEFFAA2763AF8000BF197F /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		71BEFFAC2763AF8000BF197F /* posts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = posts.json; sourceTree = "<group>"; };
 		71BEFFAD2763AF8000BF197F /* activities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = activities.json; sourceTree = "<group>"; };
@@ -241,7 +239,6 @@
 				71BEFF8A2763AF5200BF197F /* Assets.xcassets */,
 				71BEFFA82763AF8000BF197F /* Messages.swift */,
 				714DFB862763D7D500DAA1F3 /* interests.json */,
-				71BEFFA92763AF8000BF197F /* chats.json */,
 				71BEFFAA2763AF8000BF197F /* users.json */,
 				71BEFFAC2763AF8000BF197F /* posts.json */,
 				71BEFFAD2763AF8000BF197F /* activities.json */,
@@ -325,7 +322,6 @@
 				71BEFFC52763AF8000BF197F /* activities.json in Resources */,
 				71BEFF8E2763AF5200BF197F /* Preview Assets.xcassets in Resources */,
 				71BEFF8B2763AF5200BF197F /* Assets.xcassets in Resources */,
-				71BEFFC12763AF8000BF197F /* chats.json in Resources */,
 				714DFB872763D7D500DAA1F3 /* interests.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

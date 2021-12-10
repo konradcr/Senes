@@ -104,16 +104,30 @@ struct Personne: Identifiable, Codable {
 
 
 struct Chat: Identifiable, Codable {
-    var id: UUID { person.id }
-    let person: Personne
+    var id: String
     var messages: [Message]
     var hasUnreadMessage = false
+    var person: Person
+    
+    init(id: String, messages: [Message]) {
+        self.id = id
+        self.messages = messages
+        let users: [Person] = Bundle.main.decode([Person].self, from: "users.json")
+        var userMatch = Person()
+        
+        if let match = users.first(where: {$0.id == id}) {
+            userMatch = match
+        }
+        
+        self.person = userMatch
+    }
 }
 
 struct Message: Identifiable, Codable {
 
-    enum MessageType: Codable {
-        case Sent, Received
+    enum MessageType: String, Codable {
+        case Sent = "Sent"
+        case Received = "Received"
     }
 
     var id = UUID()

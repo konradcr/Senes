@@ -45,14 +45,12 @@ struct MyProfilView: View {
                 
             }
             .navigationTitle("Mon Profil")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         isCertificationPresented.toggle()
                     } label: {
                         Image(systemName: "lock.shield")
-                            .foregroundColor(.greenAction)
                     }
                 }
             }

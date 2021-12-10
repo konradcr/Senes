@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var isShowingOnboarding = true
+    @State var isShowingOnboarding = false
     @StateObject var currentUser = CurrentUser()
     
     var posts: [Post] = Bundle.main.decode([Post].self, from: "posts.json")
@@ -33,7 +33,7 @@ struct ContentView: View {
                         Text("Activités")
                     }
 
-                Messagerie()
+                Messagerie(currentUser: currentUser)
                     .tabItem{
                         Image(systemName: "bubble.left.and.bubble.right.fill")
                         Text("Messagerie")

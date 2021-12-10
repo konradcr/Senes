@@ -49,13 +49,13 @@ struct ExtractPost: View {
             if let image = post.postImage {
                 Image(image)
                     .resizable()
-                    .frame(maxWidth: .infinity,maxHeight:200 , alignment: .center)
-                    .cornerRadius(10)
+                    .scaledToFit()
+                    .cornerRadius(20)
             }
             
             
             
-        }.cardStyle()
+        }
     }
 }
 

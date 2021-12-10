@@ -19,33 +19,36 @@ struct Communaute: View {
     
     var body: some View {
         
-        NavigationView(){
-            ZStack {
-                VStack{
-                    PostView(currentUser: currentUser, sendNewPost: sendNewPost, loaderPicture: $loaderPicture, posts: posts)
+        NavigationView {
+            VStack {
+                ZStack {
+                    VStack{
+                        PostView(currentUser: currentUser, sendNewPost: sendNewPost, loaderPicture: $loaderPicture, posts: posts)
 
-                    List(posts) { post in
-                        NavigationLink(destination:PostDetailView(post: post, currentUser: currentUser)) {
-                            ExtractPost(post: post)
-                                .padding(.vertical)
+                        List(posts) { post in
+                            NavigationLink(destination:PostDetailView(post: post, currentUser: currentUser)) {
+                                ExtractPost(post: post)
+                                    .padding(.vertical)
+                            }
+                        }.listStyle(PlainListStyle())
+                    }
+                    
+                    VStack{
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            Button(action:{
+                                isNewActivityShow.toggle()
+                            }, label: {
+                                Image(systemName: "calendar.badge.plus")
+                                    .modifier(ImageModifierWithBackGround())
+                            })
                         }
                     }
+                    .padding()
                 }
-                
-                VStack{
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        Button(action:{
-                            isNewActivityShow.toggle()
-                        }, label: {
-                            Image(systemName: "calendar.badge.plus")
-                                .modifier(ImageModifierWithBackGround())
-                        })
-                    }
-                }.padding()
-                    .navigationTitle("Communauté")
             }
+            .navigationTitle("Communauté")
         }
         .sheet(isPresented: $loaderPicture.isImagePickerShown, onDismiss: loadImage) {
             ImagePicker(inputImage: $loaderPicture.inputImage, sourceType: loaderPicture.sourceType) }

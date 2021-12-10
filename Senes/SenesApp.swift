@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct SenesApp: App {
+    
     init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor.greenAction
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
@@ -16,6 +17,7 @@ struct SenesApp: App {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.greenAction]
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.greenAction]
         UITableView.appearance().backgroundColor = .white
+        UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
     }
 
     var body: some Scene {

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MessagerieView: View {
     @EnvironmentObject var viewModel: MessagerieViewModel
+    @ObservedObject var currentUser: CurrentUser
     
     let chat: Chat
     
@@ -50,7 +51,7 @@ struct MessagerieView: View {
     }
     
     var navBarLeadingBtn: some View {
-        Button(action: {}) {
+        NavigationLink(destination: ProfilOtherUserView(user: chat.person, currentUser: currentUser)) {
             HStack {
                 Image(chat.person.profilPic)
                     .resizable()
@@ -172,7 +173,7 @@ struct MessagerieView: View {
 struct MessagerieView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            MessagerieView(chat: Chat.sampleChat[0])
+            MessagerieView(currentUser: CurrentUser(), chat: Chat.sampleChat[0])
                 .environmentObject(MessagerieViewModel())
         }
     }
