@@ -42,9 +42,9 @@ struct ActivitiesView: View {
                                         .fontWeight(.semibold)
                                         .foregroundColor(.white)
                                 }
-                                .padding(.leading)
+                                .padding(.leading,5)
                             }
-                            .padding()
+                            .padding(10)
                         }
                     }
                 }
