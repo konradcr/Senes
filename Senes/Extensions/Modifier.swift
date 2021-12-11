@@ -47,6 +47,7 @@ struct ButtonStyle: ViewModifier {
             .padding()
             .background(colorBck)
             .clipShape(RoundedRectangle(cornerRadius: 7))
+            .shadow(color: Color.black.opacity(0.1), radius: 20, x: 0, y: 0)
     }
 }
 struct ModifierForTextView: ViewModifier {
@@ -65,7 +66,7 @@ struct CardModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .cornerRadius(20)
-            .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 0)
+            .shadow(color: Color.black.opacity(0.1), radius: 20, x: 0, y: 0)
     }
 }
 

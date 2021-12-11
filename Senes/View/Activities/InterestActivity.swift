@@ -38,14 +38,17 @@ struct InterestActivity: View {
     }
 
     var body: some View {
-        List(filteredActivity) { activity in
-            NavigationLink(destination: ActivityInfo(activity: activity)){
+        List {
+            ForEach(filteredActivity) { activity in
+                NavigationLink(destination: ActivityInfo(activity: activity)){
+                    ActivityCard(activity: activity)
+                }
                 
-                ActivityCard(activity: activity)
                 
-            }.searchable(text: $text)
+            }.listRowSeparator(.hidden)
+            .navigationBarTitle("\(interest.rawValue)")
         }
-        .navigationBarTitle("\(interest.rawValue)")
+        .searchable(text: $text)
     }
 }
 
@@ -54,7 +57,7 @@ struct InterestActivity_Previews: PreviewProvider {
     static var interests: [Interest] = Bundle.main.decode([Interest].self, from: "interests.json")
     
     static var previews: some View {
-        InterestActivity(activities: activities, interest: .jardinage)
+        InterestActivity(activities: activities, interest: .arts)
             .environment(\.locale, Locale(identifier: "fr"))
     }
 }

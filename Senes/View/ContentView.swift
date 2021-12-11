@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var isShowingOnboarding = true
+    @State var isShowingOnboarding = false
     @StateObject var currentUser = CurrentUser()
     
     var posts: [Post] = Bundle.main.decode([Post].self, from: "posts.json", dateDecodingStrategy: .iso8601)

@@ -32,13 +32,9 @@ struct ActivityCard: View {
             }
             .padding()
         }
-        .cornerRadius(22)
-        .overlay(
-            RoundedRectangle(cornerRadius: 22)
-                .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 1), lineWidth: 1)
-            
-        )
-        .padding([.top, .horizontal])
+        .background(.white)
+        .cardStyle()
+        .padding()
     }
 }
 

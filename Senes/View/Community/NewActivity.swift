@@ -9,22 +9,23 @@
 import SwiftUI
 
 struct NewActivity: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     @ObservedObject var user: CurrentUser
     
     @Binding var isPresented : Bool
-    @State var newActivity: Activity = Activity()
+    @State var newActivity: Activity = Activity(description: "Description de l'activité... \n \n")
     @State var sendNewPost = false
     
-    @State private var dateStart = Date()
-    @State private var dateEnd = Date()
-    
+    @State private var totalChars = 0
+    @State private var lastText = ""
+    let placeHolderDescription: String = "Description de l'activité... \n \n"
     
     @State var centerOfInterest : CenterOfInterest = .arts
     @State var loaderPicture = LoaderPicture(isImagePickerShown: false,
                                              sourceType: UIImagePickerController.SourceType.photoLibrary)
-    
-    var isValid : Bool {
-        return newActivity.title == "" || newActivity.location == ""
+    var isValid: Bool {
+        return newActivity.title != "" && newActivity.location != "" && newActivity.description != ""
     }
     
     var colorBtnIfIsValid : Color {
@@ -34,106 +35,117 @@ struct NewActivity: View {
     
     var body: some View {
         
-        VStack{
-            HStack {
-                Button {
-                    isPresented = false
-                } label: {
-                    Text("Annuler")
-                        .padding()
-                }
-                Spacer()
-            }
-            List{
-                TextField(text: $newActivity.title) { Text("Titre") }
-                
-                TextField(text: $newActivity.location) { Text("Lieu") }
-                
-                HStack{
-                    
-                    Text("Categorie")
-                    
-                    Spacer()
-                    
-                    Picker(selection: $newActivity.centerOfInterest) {
-                        ForEach(CenterOfInterest.allCases, id: \.self) { interet in
-                            Text(interet.rawValue)
+        NavigationView {
+            VStack {
+                Form {
+                    Section {
+                        TextField(text: $newActivity.title) { Text("Titre") }
+                        TextField(text: $newActivity.location) { Text("Lieu") }
+                        HStack{
+                            Text("Centre d'intérêt")
+                            Spacer()
+                            Picker("Choisissez une catégorie", selection: $newActivity.centerOfInterest) {
+                                ForEach(CenterOfInterest.allCases, id: \.self) { interet in
+                                    Text(interet.rawValue)
+                                }
+                            }
+                            .pickerStyle(.menu)
                         }
-                    } label: {}
-                    .pickerStyle(.menu)
+                    }
+                    
+                    Section {
+                        DatePicker("Début", selection: $newActivity.dateStartActivity)
+                        DatePicker("Fin", selection: $newActivity.dateEndActivity)
+                        Stepper("\(newActivity.numberParticipants) participants max",
+                                value: $newActivity.numberParticipants, in: 2...100)
+                    }
+                    
+                    ZStack {
+                        TextEditor(text: $newActivity.description)
+                            .foregroundColor(newActivity.description == placeHolderDescription ? .gray : .primary)
+                            .padding(.horizontal)
+                            .cornerRadius(20)
+                            .background(RoundedRectangle(cornerRadius: 5).stroke(Color.black.opacity(0.5)))
+                            .onChange(of: newActivity.description) { text in
+                                totalChars = text.count
+                                
+                                if totalChars <= 400 {
+                                    lastText = text
+                                } else {
+                                    self.newActivity.description = lastText
+                                }
+                            }
+                            .onTapGesture {
+                                if newActivity.description == placeHolderDescription {
+                                    newActivity.description = ""
+                                }
+                            }
+                        VStack {
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                Text("\(totalChars) / 400")
+                                    .foregroundColor(.secondary)
+                                    .font(.subheadline)
+                                    .padding(5)
+                            }
+                        }
+                        
+                    }
                 }
                 
-                DatePicker("Début", selection: $newActivity.dateStartActivity)
+                if let image = loaderPicture.image {
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 140, height: 110, alignment: .center)
+                }
                 
-                DatePicker("Fin", selection: $newActivity.dateEndActivity)
-                
-                Stepper("\(newActivity.numberParticipants) participants max",
-                        value: $newActivity.numberParticipants)
                 
                 HStack{
                     Spacer()
                     Button{
                         loaderPicture.isImagePickerShown.toggle()
-                        
                     } label: {
-                        
-                        if loaderPicture.image != nil {
-                            loaderPicture.image!
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 40)
-                                .padding()
-                        } else {
-                            Image(systemName: "camera.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 40)
-                                .padding()
-                        }
+                        Image(systemName: "camera.fill")
                     }
-                    .foregroundColor(.white)
-                    .background(Color.greenContent)
-                    .cornerRadius(10)
-                    .shadow(color: .gray, radius: 1, x: -3, y: 3)
-                    Spacer()
-                }
-                TextView(textDescription: $newActivity.description)
-                    .border(.gray, width: 2)
-                    .cornerRadius(4)
-                    .padding().frame(height: UIScreen.main.bounds.size.height / 4)
-                HStack{
-                    Spacer()
+                    .buttonPrincipalStyle(colorBck: Color.greenContent, foregroundColor: .white)
                     
-                    Button{
-                        
+                    Spacer()
+                    Button("Poster") {
                         user.activities.append(newActivity)
                         //                newActivity = .empty
                         sendNewPost = true
-                        
-                    } label: {
-                        Text("Poster sur le fil")
-                            .bold()
                     }
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(colorBtnIfIsValid)
-                    .cornerRadius(10)
-                    .shadow(color: .gray, radius: 1, x: -3, y: 3)
+                    .buttonPrincipalStyle(colorBck: isValid ? Color.greenAction : .gray, foregroundColor: .white)
+                    .disabled(isValid)
                     Spacer()
                 }
-                .disabled(isValid)
+                
+                
             }
-        }.sheet(isPresented: $loaderPicture.isImagePickerShown, onDismiss: loadImage) {
-            ImagePicker(inputImage: self.$loaderPicture.inputImage, sourceType: self.loaderPicture.sourceType) }
-        .alert(isPresented: $sendNewPost) {
-            Alert(
-                title: Text("✅ Envoyé !"),
-                message: Text("\nVotre post a bien était envoyé sur le fil"),
-                dismissButton: .default(Text("OK"),action: {
-                    isPresented = false
-                })
-            )
-        }.padding()
+            .sheet(isPresented: $loaderPicture.isImagePickerShown, onDismiss: loadImage) {
+                ImagePicker(inputImage: self.$loaderPicture.inputImage, sourceType: self.loaderPicture.sourceType) }
+            .alert(isPresented: $sendNewPost) {
+                Alert(
+                    title: Text("Activité postée !"),
+                    message: Text("\nVotre activité a bien été envoyé sur le fil"),
+                    dismissButton: .default(Text("OK"),action: {
+                        isPresented = false
+                    })
+                )
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Annuler") {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }
+            }
+            
+            .navigationTitle("Poster une activité")
+            .navigationBarTitleDisplayMode(.inline)
+        }
     }
     
     func loadImage() {
