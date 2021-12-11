@@ -22,7 +22,7 @@ struct ActivityCard: View {
                         .font(.title)
                         .bold()
                         .lineLimit(2)
-                    Text(activity.dateStartActivity)
+                    Text(activity.dateStartActivity.formatted(date: .abbreviated, time: .shortened))
                     
                     Text(activity.location)
                 }
@@ -43,7 +43,7 @@ struct ActivityCard: View {
 }
 
 struct ActivityCard_Previews: PreviewProvider {
-    static var activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json")
+    static var activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json", dateDecodingStrategy: .iso8601)
     
     static var previews: some View {
         ActivityCard(activity: activities[0])

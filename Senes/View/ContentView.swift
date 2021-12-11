@@ -11,8 +11,8 @@ struct ContentView: View {
     @State var isShowingOnboarding = true
     @StateObject var currentUser = CurrentUser()
     
-    var posts: [Post] = Bundle.main.decode([Post].self, from: "posts.json")
-    var activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json")
+    var posts: [Post] = Bundle.main.decode([Post].self, from: "posts.json", dateDecodingStrategy: .iso8601)
+    var activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json", dateDecodingStrategy: .iso8601)
     var interests: [Interest] = Bundle.main.decode([Interest].self, from: "interests.json")
     
     var body: some View {

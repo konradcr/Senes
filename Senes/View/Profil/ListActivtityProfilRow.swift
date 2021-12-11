@@ -16,19 +16,18 @@ struct ListActivtityProfilRow: View {
                 Text(activity.title)
                     .bold()
                 HStack {
-//                    Text("Le " + activity.dateStartActivity.formatted(date: .abbreviated, time: .shortened))
-                    Text("Le " + activity.dateStartActivity)
+                    Text("Le " + activity.dateStartActivity.formatted(date: .abbreviated, time: .shortened))
                     Text("à " + activity.location)
                 }
             }
-//            .foregroundColor(activity.dateStartActivity > Date() ? .black : .gray)
+            .foregroundColor(activity.dateStartActivity > Date() ? .black : .gray)
             Spacer()
         }
     }
 }
 
 struct ListActivtityProfilRow_Previews: PreviewProvider {
-    static var activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json")
+    static var activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json", dateDecodingStrategy: .iso8601)
 
     static var previews: some View {
         ListActivtityProfilRow(activity: activities[0])

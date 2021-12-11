@@ -24,7 +24,7 @@ struct ExtractPost: View {
     }
     
     var body: some View {
-        VStack(alignment:.leading) {
+        VStack(alignment: .leading) {
             VStack{
                 HStack{
                     Image(user.profilPic)
@@ -35,8 +35,7 @@ struct ExtractPost: View {
                         Text(user.name)
                             .fontWeight(.bold)
                         
-//                        Text(datePost, format: .dateTime.day().month().year())
-                        Text(post.datePost)
+                        Text(post.datePost.formatted(date: .abbreviated, time: .shortened))
                             .foregroundColor(.gray)
                     }
                 }
@@ -52,15 +51,12 @@ struct ExtractPost: View {
                     .scaledToFit()
                     .cornerRadius(20)
             }
-            
-            
-            
         }
     }
 }
 
 struct ExtractPost_Previews: PreviewProvider {
-    static var posts: [Post] = Bundle.main.decode([Post].self, from: "posts.json")
+    static var posts: [Post] = Bundle.main.decode([Post].self, from: "posts.json", dateDecodingStrategy: .iso8601)
     
     static var previews: some View {
         ExtractPost(post: posts[0])

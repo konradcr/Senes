@@ -104,7 +104,7 @@ struct PostView: View {
 }
 
 struct PostView_Previews: PreviewProvider {
-    static var posts: [Post] = Bundle.main.decode([Post].self, from: "posts.json")
+    static var posts: [Post] = Bundle.main.decode([Post].self, from: "posts.json", dateDecodingStrategy: .iso8601)
 
     static var previews: some View {
         PostView(

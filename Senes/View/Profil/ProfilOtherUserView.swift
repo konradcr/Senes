@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfilOtherUserView: View {
-    let user: Person
+    @ObservedObject var user: Person
     @ObservedObject var currentUser: CurrentUser
     
     var body: some View {
@@ -25,12 +25,14 @@ struct ProfilOtherUserView: View {
                     Spacer()
                     Button(user.isYourFriend ? "Retirer" : "Ajouter") {
                         if user.isYourFriend {
-                            if let index = currentUser.friends.firstIndex(of: user) {
-                                currentUser.friends.remove(at: index)
-                                self.user.isYourFriend = false
-                            }
+                            currentUser.removeFriend(user: user)
+                            print(currentUser.friends)
+                            print(Date())
+                            self.user.isYourFriend = false
+                            
                         } else {
-                            currentUser.friends.append(user)
+                            currentUser.addFriend(user: user)
+                            print(currentUser.friends)
                             self.user.isYourFriend = true
                         }
                     }

@@ -41,7 +41,7 @@ struct ActivityInfo: View {
                             .foregroundColor(.white)
                             .font(.title)
                             .bold()
-                        Text(activity.dateStartActivity)
+                        Text(activity.dateStartActivity.formatted(date: .abbreviated, time: .shortened))
                             .bold()
                             .font(.title2)
                         
@@ -85,7 +85,7 @@ struct ActivityInfo: View {
 
 
 struct ActivityInfo_Previews: PreviewProvider {
-    static let activities = Bundle.main.decode([Activity].self, from: "activities.json")
+    static let activities = Bundle.main.decode([Activity].self, from: "activities.json", dateDecodingStrategy: .iso8601)
     
     static var previews: some View {
         ActivityInfo(activity: activities[0])

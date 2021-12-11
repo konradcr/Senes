@@ -19,7 +19,7 @@ struct FriendsSegmentView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 20) {
-                ForEach(currentUser.getFriends(), id: \.self) { friend in
+                ForEach(currentUser.friendsSorted, id: \.id) { friend in
                     NavigationLink(destination: ProfilOtherUserView(user: friend, currentUser: currentUser)) {
                         FriendProfilCell(friend: friend)
                     }.buttonStyle(.plain)

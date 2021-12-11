@@ -14,8 +14,10 @@ struct Communaute: View {
     
     @State var isNewActivityShow : Bool = false
     @State var sendNewPost : Bool = false
-    @State var loaderPicture = LoaderPicture(isImagePickerShown: false,
-                                             sourceType: UIImagePickerController.SourceType.photoLibrary)
+    @State var loaderPicture = LoaderPicture(
+        isImagePickerShown: false,
+        sourceType: UIImagePickerController.SourceType.photoLibrary
+    )
     
     var body: some View {
         
@@ -66,7 +68,7 @@ struct Communaute: View {
 }
 
 struct Communaute_Previews: PreviewProvider {
-    static var posts: [Post] = Bundle.main.decode([Post].self, from: "posts.json")
+    static var posts: [Post] = Bundle.main.decode([Post].self, from: "posts.json", dateDecodingStrategy: .iso8601)
     
     static var previews: some View {
         Communaute(currentUser: CurrentUser(), posts: posts)

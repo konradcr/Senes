@@ -21,9 +21,16 @@ class CurrentUser: Person {
     @Published var activities: [Activity] = []
     @Published var chats: [Chat] = []
     @Published var myPost: [Post] = []
+    
     var activitiesSorted: [Activity] {
         return activities.sorted {
             $0.dateStartActivity > $1.dateStartActivity
+        }
+    }
+    
+    var friendsSorted: [Person] {
+        return friends.sorted {
+            $0.name < $1.name
         }
     }
     
@@ -36,15 +43,18 @@ class CurrentUser: Person {
         }
     }
     
-    func getFriends() -> [Person] {
-        let friends = self.friends.filter { $0.isYourFriend == true }
-        return friends.sorted {
-            $0.name < $1.name
+    func addFriend(user: Person) {
+        friends.append(user)
+    }
+    
+    func removeFriend(user: Person) {
+        if let index = friends.firstIndex(of: user) {
+            friends.remove(at: index)
         }
     }
     
     func getActivities() -> [Activity] {
-        let activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json")
+        let activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json", dateDecodingStrategy: .iso8601)
         return activities.filter { $0.participating == true }
     }
 }
@@ -57,7 +67,7 @@ class Person: Identifiable, Hashable, Equatable, ObservableObject, Codable {
     @Published var profilPic : String = "Germaine"
     @Published var centersOfInterest: [CenterOfInterest] = [.arts,.jardinage]
     @Published var isCertified: Bool = false
-    @Published var isYourFriend = Bool()
+    @Published var isYourFriend: Bool = false
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
@@ -160,9 +170,9 @@ struct Activity: Identifiable, Codable {
     var title: String = ""
     var userID: String = ""
     var location: String = ""
-    var datePost: String = ""
-    var dateStartActivity: String = ""
-    var dateEndActivity: String = ""
+    var datePost: Date = Date()
+    var dateStartActivity: Date = Date()
+    var dateEndActivity: Date = Date()
     var pictureActivity: String?
     var numberParticipants: Int = 10
     var description: String = ""
@@ -172,7 +182,7 @@ struct Activity: Identifiable, Codable {
 
 struct Post: Identifiable, Codable  {
     var id: String = UUID().uuidString
-    var datePost: String = Date().descriptiveString(dateStyle: .medium)
+    var datePost: Date = Date()
     var userID: String = UUID().uuidString
     var postImage: String?
     var description: String = ""

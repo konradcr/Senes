@@ -56,7 +56,7 @@ struct ActivitiesView: View {
 }
 
 struct ActivitiesView_Previews: PreviewProvider {
-    static var activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json")
+    static var activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json", dateDecodingStrategy: .iso8601)
     static var interests: [Interest] = Bundle.main.decode([Interest].self, from: "interests.json")
     
     static var previews: some View {

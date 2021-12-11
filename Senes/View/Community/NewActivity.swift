@@ -56,23 +56,19 @@ struct NewActivity: View {
                     Spacer()
                     
                     Picker(selection: $newActivity.centerOfInterest) {
-                        ForEach(CenterOfInterest.allCases, id: \.self) { // KeyPath
-                            interet in
+                        ForEach(CenterOfInterest.allCases, id: \.self) { interet in
                             Text(interet.rawValue)
                         }
                     } label: {}
                     .pickerStyle(.menu)
                 }
                 
-                DatePicker("Début", selection: $dateStart)
+                DatePicker("Début", selection: $newActivity.dateStartActivity)
                 
-                DatePicker("Fin", selection: $dateEnd)
+                DatePicker("Fin", selection: $newActivity.dateEndActivity)
                 
-                TextField("Nombre de participant",
-                          value: $newActivity.numberParticipants,
-                          format: .number)
-                    .keyboardType(.numberPad)
-                
+                Stepper("\(newActivity.numberParticipants) participants max",
+                        value: $newActivity.numberParticipants)
                 
                 HStack{
                     Spacer()
@@ -110,8 +106,6 @@ struct NewActivity: View {
                     
                     Button{
                         
-                        newActivity.dateStartActivity = dateStart.descriptiveString(dateStyle: .medium)
-                        newActivity.dateEndActivity = dateEnd.descriptiveString(dateStyle: .medium)
                         user.activities.append(newActivity)
                         //                newActivity = .empty
                         sendNewPost = true

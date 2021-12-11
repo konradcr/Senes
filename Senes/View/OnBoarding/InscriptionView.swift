@@ -23,7 +23,7 @@ struct InscriptionView: View {
     @State var description : String = ""
     
     var users: [Person] = Bundle.main.decode([Person].self, from: "users.json")
-    var activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json")
+    var activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json", dateDecodingStrategy: .iso8601)
     var interests: [Interest] = Bundle.main.decode([Interest].self, from: "interests.json")
     
     
