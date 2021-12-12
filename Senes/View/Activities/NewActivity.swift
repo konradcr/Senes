@@ -9,29 +9,34 @@
 import SwiftUI
 
 struct NewActivity: View {
-    @Environment(\.presentationMode) var presentationMode
-    
     @ObservedObject var user: CurrentUser
+    @ObservedObject var activitiesViewModel: ActivitiesViewModel
     
     @Binding var isPresented : Bool
-    @State var newActivity: Activity = Activity(description: "Description de l'activité... \n \n")
     @State var sendNewPost = false
     
+    @State var newActivity: Activity = Activity()
+    @State private var title: String = ""
+    @State private var location: String = ""
+    @State private var description: String = "Description de l'activité... \n \n"
     @State private var totalChars = 0
     @State private var lastText = ""
-    let placeHolderDescription: String = "Description de l'activité... \n \n"
+    let placeHolderDescription = "Description de l'activité... \n \n"
     
-    @State var centerOfInterest : CenterOfInterest = .arts
     @State var loaderPicture = LoaderPicture(isImagePickerShown: false,
                                              sourceType: UIImagePickerController.SourceType.photoLibrary)
+    
     var isValid: Bool {
-        return newActivity.title != "" && newActivity.location != "" && newActivity.description != ""
+        if title != "" && location != "" {
+            if description != "" && description != placeHolderDescription {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
     }
-    
-    var colorBtnIfIsValid : Color {
-        isValid ? .greenContent : .greenAction
-    }
-    
     
     var body: some View {
         
@@ -39,8 +44,8 @@ struct NewActivity: View {
             VStack {
                 Form {
                     Section {
-                        TextField(text: $newActivity.title) { Text("Titre") }
-                        TextField(text: $newActivity.location) { Text("Lieu") }
+                        TextField(text: $title) { Text("Titre") }
+                        TextField(text: $location) { Text("Lieu") }
                         HStack{
                             Text("Centre d'intérêt")
                             Spacer()
@@ -61,25 +66,27 @@ struct NewActivity: View {
                     }
                     
                     ZStack {
-                        TextEditor(text: $newActivity.description)
-                            .foregroundColor(newActivity.description == placeHolderDescription ? .gray : .primary)
+                        TextEditor(text: $description)
+                            .foregroundColor(description == placeHolderDescription ? .gray : .primary)
                             .padding(.horizontal)
                             .cornerRadius(20)
                             .background(RoundedRectangle(cornerRadius: 5).stroke(Color.black.opacity(0.5)))
-                            .onChange(of: newActivity.description) { text in
+                            
+                            .onTapGesture {
+                                if self.description == placeHolderDescription {
+                                    self.description = ""
+                                }
+                            }
+                            .onChange(of: description) { text in
                                 totalChars = text.count
-                                
+
                                 if totalChars <= 400 {
                                     lastText = text
                                 } else {
-                                    self.newActivity.description = lastText
+                                    self.description = lastText
                                 }
                             }
-                            .onTapGesture {
-                                if newActivity.description == placeHolderDescription {
-                                    newActivity.description = ""
-                                }
-                            }
+                            
                         VStack {
                             Spacer()
                             HStack {
@@ -101,7 +108,6 @@ struct NewActivity: View {
                         .frame(width: 140, height: 110, alignment: .center)
                 }
                 
-                
                 HStack{
                     Spacer()
                     Button{
@@ -113,16 +119,12 @@ struct NewActivity: View {
                     
                     Spacer()
                     Button("Poster") {
-                        user.activities.append(newActivity)
-                        //                newActivity = .empty
-                        sendNewPost = true
+                        createActivity()
                     }
                     .buttonPrincipalStyle(colorBck: isValid ? Color.greenAction : .gray, foregroundColor: .white)
-                    .disabled(isValid)
+                    .disabled(isValid == false)
                     Spacer()
                 }
-                
-                
             }
             .sheet(isPresented: $loaderPicture.isImagePickerShown, onDismiss: loadImage) {
                 ImagePicker(inputImage: self.$loaderPicture.inputImage, sourceType: self.loaderPicture.sourceType) }
@@ -131,26 +133,38 @@ struct NewActivity: View {
                     title: Text("Activité postée !"),
                     message: Text("\nVotre activité a bien été envoyé sur le fil"),
                     dismissButton: .default(Text("OK"),action: {
-                        isPresented = false
+                        dismiss()
                     })
                 )
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Annuler") {
-                        presentationMode.wrappedValue.dismiss()
+                        dismiss()
+                        
                     }
                 }
             }
-            
             .navigationTitle("Poster une activité")
             .navigationBarTitleDisplayMode(.inline)
         }
+    }
+    func createActivity() {
+        self.newActivity.title = title
+        self.newActivity.location = location
+        self.newActivity.description = description
+        user.activities.append(newActivity)
+        activitiesViewModel.addActivity(newActivity)
+        sendNewPost = true
     }
     
     func loadImage() {
         guard let inputImage = loaderPicture.inputImage else { return }
         loaderPicture.image = Image(uiImage: inputImage)
+    }
+    
+    func dismiss() {
+        self.isPresented = false
     }
 }
 
@@ -159,6 +173,6 @@ struct NewActivity: View {
 
 struct NewActivity_Previews: PreviewProvider {
     static var previews: some View {
-        NewActivity(user: CurrentUser(), isPresented: .constant(true))
+        NewActivity(user: CurrentUser(), activitiesViewModel: ActivitiesViewModel(), isPresented: .constant(true))
     }
 }

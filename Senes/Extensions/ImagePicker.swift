@@ -56,3 +56,10 @@ extension ImagePicker {
         }
     }
 }
+
+struct LoaderPicture {
+    var isImagePickerShown : Bool = false
+    var inputImage: UIImage?
+    var sourceType = UIImagePickerController.SourceType.photoLibrary
+    var image: Image?
+}

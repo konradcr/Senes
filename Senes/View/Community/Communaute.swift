@@ -9,8 +9,8 @@ import SwiftUI
 
 struct Communaute: View {
     @ObservedObject var currentUser: CurrentUser
-    
-    let posts: [Post]
+    @ObservedObject var activitiesViewModel: ActivitiesViewModel
+    @ObservedObject var postsViewModel: PostViewModel
     
     @State var isNewActivityShow : Bool = false
     @State var sendNewPost : Bool = false
@@ -25,9 +25,9 @@ struct Communaute: View {
             VStack {
                 ZStack {
                     VStack{
-                        PostView(currentUser: currentUser, sendNewPost: sendNewPost, loaderPicture: $loaderPicture, posts: posts)
+                        PostView(currentUser: currentUser, postsViewModel: postsViewModel, sendNewPost: sendNewPost, loaderPicture: $loaderPicture)
 
-                        List(posts) { post in
+                        List(postsViewModel.posts) { post in
                             NavigationLink(destination:PostDetailView(post: post, currentUser: currentUser)) {
                                 ExtractPost(post: post)
                                     .padding(.vertical)
@@ -55,7 +55,7 @@ struct Communaute: View {
         .sheet(isPresented: $loaderPicture.isImagePickerShown, onDismiss: loadImage) {
             ImagePicker(inputImage: $loaderPicture.inputImage, sourceType: loaderPicture.sourceType) }
         .sheet(isPresented: $isNewActivityShow) {
-            NewActivity(user: currentUser, isPresented: $isNewActivityShow) }
+            NewActivity(user: currentUser, activitiesViewModel: activitiesViewModel, isPresented: $isNewActivityShow) }
         .alert("Votre post a bien eté envoyé sur le fil", isPresented: $sendNewPost) {
             Button("OK", role: .cancel) { }
         }
@@ -71,6 +71,6 @@ struct Communaute_Previews: PreviewProvider {
     static var posts: [Post] = Bundle.main.decode([Post].self, from: "posts.json", dateDecodingStrategy: .iso8601)
     
     static var previews: some View {
-        Communaute(currentUser: CurrentUser(), posts: posts)
+        Communaute(currentUser: CurrentUser(), activitiesViewModel: ActivitiesViewModel(), postsViewModel: PostViewModel())
     }
 }

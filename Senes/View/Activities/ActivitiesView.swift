@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct ActivitiesView: View {
+    @ObservedObject var currentUser: CurrentUser
+    @ObservedObject var activitiesViewModel: ActivitiesViewModel
+    
+    @State private var isAddingNewActivity = false
+    @State var sendNewPost: Bool = false
+    
     let interests : [Interest]
-    let activities: [Activity]
     
     let gridLayout: [GridItem] = [
         GridItem(.flexible()),
@@ -17,13 +22,13 @@ struct ActivitiesView: View {
     ]
     
     var body: some View {
-        NavigationView{
+        NavigationView {
             ScrollView {
                 LazyVGrid(columns : gridLayout, alignment : .center){
                     
                     ForEach(interests){ interest in
                         
-                        NavigationLink(destination: InterestActivity(activities: activities, interest: interest.category)) {
+                        NavigationLink(destination: InterestActivity(currentUser: currentUser, activities: activitiesViewModel.activities, interest: interest.category)) {
                             
                             ZStack(alignment: .leading) {
                                 GeometryReader { gr in
@@ -50,8 +55,24 @@ struct ActivitiesView: View {
                 }
             }
             .padding()
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        isAddingNewActivity.toggle()
+                    } label: {
+                        Image(systemName: "calendar.badge.plus")
+                    }
+                }
+            }
             .navigationTitle("Activités")
+            .sheet(isPresented: $isAddingNewActivity) {
+                NewActivity(user: currentUser, activitiesViewModel: activitiesViewModel, isPresented: $isAddingNewActivity) }
+            .alert("Votre post a bien eté envoyé sur le fil", isPresented: $sendNewPost) {
+                Button("OK", role: .cancel) { }
+            }
         }
+        
+
     }
 }
 
@@ -60,7 +81,7 @@ struct ActivitiesView_Previews: PreviewProvider {
     static var interests: [Interest] = Bundle.main.decode([Interest].self, from: "interests.json")
     
     static var previews: some View {
-        ActivitiesView(interests: interests, activities: activities)
+        ActivitiesView(currentUser: CurrentUser(), activitiesViewModel: ActivitiesViewModel(), interests: interests)
     }
 }
 

@@ -11,24 +11,23 @@ struct FriendsSegmentView: View {
     @ObservedObject var currentUser: CurrentUser
     
     let columns = [
-            GridItem(.flexible()),
-            GridItem(.flexible()),
-            GridItem(.flexible())
-        ]
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
     
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 20) {
                 ForEach(currentUser.friendsSorted, id: \.id) { friend in
-                    NavigationLink(destination: ProfilOtherUserView(user: friend, currentUser: currentUser)) {
+                    NavigationLink(destination: ProfilOtherUserView(currentUser: currentUser, user: friend)) {
                         FriendProfilCell(friend: friend)
-                    }.buttonStyle(.plain)
+                    }
+                    .buttonStyle(.plain)
                 }
             }
             .padding(.horizontal)
         }
-        
-        
     }
 }
 

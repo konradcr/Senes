@@ -10,8 +10,7 @@
         "pictureActivity": "peintglass",
         "numberParticipants": 10,
         "description": "Un super atelier au cours duquel nous allons apprendre à utiliser un pinceau brosse à poils courts pour peindre sur des bouteilles en verre.",
-        "centerOfInterest": "Arts",
-        "participating": false
+        "centerOfInterest": "Arts"
     },
     {
         "id": "15cb0048-59b7-11ec-bf63-0242ac130002",
@@ -24,8 +23,7 @@
         "pictureActivity": "jeuvideo",
         "numberParticipants": 6,
         "description": "On se fait un tournois de foot sur ps5",
-        "centerOfInterest": "Sport",
-        "participating": false
+        "centerOfInterest": "Sport"
     },
     {
         "id": "199b8440-59b7-11ec-bf63-0242ac130002",
@@ -38,8 +36,7 @@
         "pictureActivity": "creatJeuxBois",
         "numberParticipants": 6,
         "description": "Au cours de cette session, nous allons explorer le processus de création d'un jouet en bois pour les enfants.",
-        "centerOfInterest": "Arts",
-        "participating": false
+        "centerOfInterest": "Arts"
     },
     {
         "id": "1d7af140-59b7-11ec-bf63-0242ac130002",
@@ -52,8 +49,7 @@
         "pictureActivity": "pastelGras",
         "numberParticipants": 12,
         "description": "Cet atelier a pour but de vous faire découvrir l'utilisation du pastel gras.",
-        "centerOfInterest": "Arts",
-        "participating": true
+        "centerOfInterest": "Arts"
     },
     {
         "id": "2200fc50-59b7-11ec-bf63-0242ac130002",
@@ -66,8 +62,7 @@
         "pictureActivity": "peinture",
         "numberParticipants": 10,
         "description": "Rejoignez-moi pour vous initier à la peinture à l'huile et peut-être devenir le prochain Picasso !",
-        "centerOfInterest": "Arts",
-        "participating": true
+        "centerOfInterest": "Arts"
     },
     {
         "id": "254fa168-59b7-11ec-bf63-0242ac130002",
@@ -80,8 +75,7 @@
         "pictureActivity": "biblio",
         "numberParticipants": 8,
         "description": "Avoir l'opportunité de raconter de belles histoires à nos petites têtes blondes.",
-        "centerOfInterest": "Littérature",
-        "participating": false
+        "centerOfInterest": "Littérature"
     },
     {
         "id": "28c70b10-59b7-11ec-bf63-0242ac130002",
@@ -94,8 +88,7 @@
         "pictureActivity": "sportActi",
         "numberParticipants": 12,
         "description": "Je vous invite à participer à une pure journée de sport.",
-        "centerOfInterest": "Sport",
-        "participating": false
+        "centerOfInterest": "Sport"
     },
     {
         "id": "2c4c8a08-59b7-11ec-bf63-0242ac130002",
@@ -108,8 +101,7 @@
         "pictureActivity": "shoping",
         "numberParticipants": 15,
         "description": "J'organise une sortie à Truffaut pour regarder les plantes, papoter et éventuellement considérer nos prochaines récoltes ;) autour d'un bon pastis.",
-        "centerOfInterest": "Jardinage",
-        "participating": false
+        "centerOfInterest": "Jardinage"
     }
 ]
 

@@ -11,17 +11,14 @@ struct ActivitiesSegmentView: View {
     @ObservedObject var currentUser: CurrentUser
     
     var body: some View {
-        
-            List(currentUser.activitiesSorted) { activity in
-                NavigationLink(destination: ActivityInfo(activity: activity)) {
+        List {
+            ForEach(currentUser.activitiesSorted, id: \.id) { activity in
+                NavigationLink(destination: ActivityInfo(currentUser: currentUser, activity: activity)) {
                     ListActivtityProfilRow(activity: activity)
                 }
                 .listRowBackground(Color.greenContent.opacity(0.2))
-                
             }
-            
-        
-        
+        }
     }
 }
 

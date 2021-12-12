@@ -99,16 +99,9 @@ struct InscriptionView: View {
 //        currentUser.name = nom
 //        currentUser.city = ville
 //        currentUser.centersOfInterest = interestsChoosed
-//        currentUser.profilPic
-        currentUser.friends = currentUser.getFriendsInscription()
-//        currentUser.chats = []
-//        currentUser.myPost = []
-        currentUser.activities = currentUser.getActivities()
-//        currentUser.isCertified = false
 //        currentUser.description = description
-        
+        currentUser.fakeInscription()
         isShowingInscription = false
-        
     }
 }
 

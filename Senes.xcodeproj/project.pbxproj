@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7127E6702766223B00842900 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127E66F2766223B00842900 /* Activity.swift */; };
+		7127E6722766225900842900 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127E6712766225900842900 /* Post.swift */; };
+		7127E6742766227D00842900 /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127E6732766227D00842900 /* Interest.swift */; };
+		7127E676276622BC00842900 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127E675276622BC00842900 /* Chat.swift */; };
+		7127E678276622D100842900 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127E677276622D100842900 /* Message.swift */; };
+		7127E67A2766231900842900 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127E6792766231900842900 /* Person.swift */; };
+		7127E67D27664FC300842900 /* ActivitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127E67C27664FC300842900 /* ActivitiesViewModel.swift */; };
+		7127E67F27665AC300842900 /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127E67E27665AC300842900 /* PostsViewModel.swift */; };
+		7127E68127665D9D00842900 /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127E68027665D9C00842900 /* NewPostView.swift */; };
 		71292C302763BA4500F93BE4 /* ActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C2C2763BA4500F93BE4 /* ActivitiesView.swift */; };
 		71292C312763BA4500F93BE4 /* InterestActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C2D2763BA4500F93BE4 /* InterestActivity.swift */; };
 		71292C322763BA4500F93BE4 /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C2E2763BA4500F93BE4 /* ActivityCard.swift */; };
@@ -30,7 +39,7 @@
 		71BEFF872763AF4F00BF197F /* SenesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BEFF862763AF4F00BF197F /* SenesApp.swift */; };
 		71BEFF8B2763AF5200BF197F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71BEFF8A2763AF5200BF197F /* Assets.xcassets */; };
 		71BEFF8E2763AF5200BF197F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71BEFF8D2763AF5200BF197F /* Preview Assets.xcassets */; };
-		71BEFFB42763AF8000BF197F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BEFF952763AF8000BF197F /* Model.swift */; };
+		71BEFFB42763AF8000BF197F /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BEFF952763AF8000BF197F /* CurrentUser.swift */; };
 		71BEFFB52763AF8000BF197F /* MessagerieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BEFF962763AF8000BF197F /* MessagerieViewModel.swift */; };
 		71BEFFB62763AF8000BF197F /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BEFF9C2763AF8000BF197F /* PostDetailView.swift */; };
 		71BEFFB72763AF8000BF197F /* Communaute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BEFF9D2763AF8000BF197F /* Communaute.swift */; };
@@ -54,6 +63,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7127E66F2766223B00842900 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		7127E6712766225900842900 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		7127E6732766227D00842900 /* Interest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
+		7127E675276622BC00842900 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		7127E677276622D100842900 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		7127E6792766231900842900 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		7127E67C27664FC300842900 /* ActivitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewModel.swift; sourceTree = "<group>"; };
+		7127E67E27665AC300842900 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
+		7127E68027665D9C00842900 /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
 		71292C2C2763BA4500F93BE4 /* ActivitiesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesView.swift; sourceTree = "<group>"; };
 		71292C2D2763BA4500F93BE4 /* InterestActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestActivity.swift; sourceTree = "<group>"; };
 		71292C2E2763BA4500F93BE4 /* ActivityCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
@@ -78,7 +96,7 @@
 		71BEFF862763AF4F00BF197F /* SenesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenesApp.swift; sourceTree = "<group>"; };
 		71BEFF8A2763AF5200BF197F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71BEFF8D2763AF5200BF197F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		71BEFF952763AF8000BF197F /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		71BEFF952763AF8000BF197F /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		71BEFF962763AF8000BF197F /* MessagerieViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagerieViewModel.swift; sourceTree = "<group>"; };
 		71BEFF9C2763AF8000BF197F /* PostDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
 		71BEFF9D2763AF8000BF197F /* Communaute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communaute.swift; sourceTree = "<group>"; };
@@ -112,6 +130,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7127E67B27662E9100842900 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				71BEFF952763AF8000BF197F /* CurrentUser.swift */,
+				71BEFF962763AF8000BF197F /* MessagerieViewModel.swift */,
+				7127E67C27664FC300842900 /* ActivitiesViewModel.swift */,
+				7127E67E27665AC300842900 /* PostsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		71BEFF7A2763AF4F00BF197F = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				71BEFF862763AF4F00BF197F /* SenesApp.swift */,
+				7127E67B27662E9100842900 /* ViewModel */,
 				71BEFF942763AF8000BF197F /* Models */,
 				71BEFFA72763AF8000BF197F /* Data */,
 				71BEFF972763AF8000BF197F /* View */,
@@ -152,8 +182,12 @@
 		71BEFF942763AF8000BF197F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				71BEFF952763AF8000BF197F /* Model.swift */,
-				71BEFF962763AF8000BF197F /* MessagerieViewModel.swift */,
+				7127E66F2766223B00842900 /* Activity.swift */,
+				7127E675276622BC00842900 /* Chat.swift */,
+				7127E6732766227D00842900 /* Interest.swift */,
+				7127E677276622D100842900 /* Message.swift */,
+				7127E6792766231900842900 /* Person.swift */,
+				7127E6712766225900842900 /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -207,6 +241,7 @@
 				71292C2D2763BA4500F93BE4 /* InterestActivity.swift */,
 				71292C2E2763BA4500F93BE4 /* ActivityCard.swift */,
 				71292C2F2763BA4500F93BE4 /* ActivityInfo.swift */,
+				71BEFF9F2763AF8000BF197F /* NewActivity.swift */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -216,9 +251,9 @@
 			children = (
 				71BEFF9D2763AF8000BF197F /* Communaute.swift */,
 				71BEFFA02763AF8000BF197F /* PostView.swift */,
+				7127E68027665D9C00842900 /* NewPostView.swift */,
 				71BEFF9E2763AF8000BF197F /* ExtractPost.swift */,
 				71BEFF9C2763AF8000BF197F /* PostDetailView.swift */,
-				71BEFF9F2763AF8000BF197F /* NewActivity.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -333,7 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71BEFFB42763AF8000BF197F /* Model.swift in Sources */,
+				71BEFFB42763AF8000BF197F /* CurrentUser.swift in Sources */,
 				71BEFFBC2763AF8000BF197F /* ContentView.swift in Sources */,
 				71BEFFB82763AF8000BF197F /* ExtractPost.swift in Sources */,
 				71BEFFC82763AF8000BF197F /* Decoder.swift in Sources */,
@@ -343,20 +378,25 @@
 				71BEFFC72763AF8000BF197F /* ExtensionsColors.swift in Sources */,
 				71292C392763C05A00F93BE4 /* Messagerie.swift in Sources */,
 				71292C482763C15500F93BE4 /* ProfilOtherUserView.swift in Sources */,
+				7127E678276622D100842900 /* Message.swift in Sources */,
 				71BEFFB52763AF8000BF197F /* MessagerieViewModel.swift in Sources */,
 				71292C312763BA4500F93BE4 /* InterestActivity.swift in Sources */,
 				71292C4F2763C15500F93BE4 /* FriendsSegmentView.swift in Sources */,
 				71292C382763C05A00F93BE4 /* MessagerieRow.swift in Sources */,
 				71BEFFC62763AF8000BF197F /* Date.swift in Sources */,
 				71292C322763BA4500F93BE4 /* ActivityCard.swift in Sources */,
+				7127E6742766227D00842900 /* Interest.swift in Sources */,
 				71292C4D2763C15500F93BE4 /* PresentationProfilCard.swift in Sources */,
 				71BEFFC02763AF8000BF197F /* Messages.swift in Sources */,
 				71292C472763C15500F93BE4 /* FriendProfilCell.swift in Sources */,
+				7127E6722766225900842900 /* Post.swift in Sources */,
 				71BEFFBB2763AF8000BF197F /* CustomTextView.swift in Sources */,
 				71BEFF872763AF4F00BF197F /* SenesApp.swift in Sources */,
 				71BEFFBE2763AF8000BF197F /* InscriptionView.swift in Sources */,
 				71292C462763C15500F93BE4 /* CertificationView.swift in Sources */,
+				7127E67A2766231900842900 /* Person.swift in Sources */,
 				71292C512763C15500F93BE4 /* CertificationAsked.swift in Sources */,
+				7127E6702766223B00842900 /* Activity.swift in Sources */,
 				71292C4A2763C15500F93BE4 /* AskingCertificationView.swift in Sources */,
 				71BEFFBA2763AF8000BF197F /* PostView.swift in Sources */,
 				71292C302763BA4500F93BE4 /* ActivitiesView.swift in Sources */,
@@ -365,8 +405,12 @@
 				71292C502763C15500F93BE4 /* ActivitiesSegmentView.swift in Sources */,
 				71292C372763C05A00F93BE4 /* MessagerieView.swift in Sources */,
 				71BEFFBD2763AF8000BF197F /* PageView .swift in Sources */,
+				7127E68127665D9D00842900 /* NewPostView.swift in Sources */,
 				71BEFFC92763AF8000BF197F /* ImagePicker.swift in Sources */,
 				71BEFFB72763AF8000BF197F /* Communaute.swift in Sources */,
+				7127E67D27664FC300842900 /* ActivitiesViewModel.swift in Sources */,
+				7127E67F27665AC300842900 /* PostsViewModel.swift in Sources */,
+				7127E676276622BC00842900 /* Chat.swift in Sources */,
 				71BEFFBF2763AF8000BF197F /* OnboardingView.swift in Sources */,
 				71292C492763C15500F93BE4 /* ListActivtityProfilRow.swift in Sources */,
 				71292C332763BA4500F93BE4 /* ActivityInfo.swift in Sources */,

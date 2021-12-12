@@ -9,8 +9,7 @@ import SwiftUI
 
 struct PresentationProfilCard: View {
     @ObservedObject var currentUser: CurrentUser
-    
-    
+
     var body: some View {
         HStack {
             Image(currentUser.profilPic)

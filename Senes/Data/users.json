@@ -7,8 +7,7 @@
         "description": "Coucou je suis papi et je suis fun!\nj'aime mes petits enfant, la peche et les sorties sportives.\nPs: Je n'est jamais etait a l'école",
         "profilPic": "Papifun",
         "centersOfInterest": ["Jardinage"],
-        "isCertified": false,
-        "isYourFriend": true
+        "isCertified": false
     },
     {
         "id": "00ca62da-5992-11ec-bf63-0242ac130002",
@@ -17,8 +16,7 @@
         "description": "Bonjour à tous. Au plaisir de vous rencontrer. L’âge n’est qu’un chiffre comme on dit hahaha",
         "profilPic": "Jeanine",
         "centersOfInterest": ["Littérature"],
-        "isCertified": false,
-        "isYourFriend": true
+        "isCertified": false
     },
     {
         "id": "04e4d2ce-5992-11ec-bf63-0242ac130002",
@@ -27,8 +25,7 @@
         "description": "Bonjour je suis Pascal, je viens de Marseille et j'aimerai rencontrer d'autres personnes",
         "profilPic": "Pascal",
         "centersOfInterest": ["Sport"],
-        "isCertified": true,
-        "isYourFriend": false
+        "isCertified": true
     },
     {
         "id":"08548922-5992-11ec-bf63-0242ac130002",
@@ -37,8 +34,7 @@
         "description": "Actuellement etudiant en Master MIAGE, je suis nouvelle dans cette ville et recherche de la compagnie et en apprendre plus de personnes avec de l'experience",
         "profilPic": "Vanessa",
         "centersOfInterest": ["Cuisine"],
-        "isCertified": false,
-        "isYourFriend": true
+        "isCertified": false
     }
 ]
 

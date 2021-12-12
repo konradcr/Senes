@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct InterestActivity: View {
+    @ObservedObject var currentUser: CurrentUser
+    
     @State private var text = ""
     
     let activities: [Activity]
@@ -40,7 +42,7 @@ struct InterestActivity: View {
     var body: some View {
         List {
             ForEach(filteredActivity) { activity in
-                NavigationLink(destination: ActivityInfo(activity: activity)){
+                NavigationLink(destination: ActivityInfo(currentUser: currentUser, activity: activity)){
                     ActivityCard(activity: activity)
                 }
                 
@@ -57,7 +59,7 @@ struct InterestActivity_Previews: PreviewProvider {
     static var interests: [Interest] = Bundle.main.decode([Interest].self, from: "interests.json")
     
     static var previews: some View {
-        InterestActivity(activities: activities, interest: .arts)
+        InterestActivity(currentUser: CurrentUser(), activities: activities, interest: .arts)
             .environment(\.locale, Locale(identifier: "fr"))
     }
 }

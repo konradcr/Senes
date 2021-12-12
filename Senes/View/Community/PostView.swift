@@ -9,14 +9,13 @@ import SwiftUI
 
 
 struct PostView: View {
-    
     @ObservedObject var currentUser: CurrentUser
+    @ObservedObject var postsViewModel: PostViewModel
     
     @State var description: String = "Ecrit un message..."
     
     @State var sendNewPost: Bool = false
     @Binding var loaderPicture: LoaderPicture
-    var posts: [Post]
     
     var isValid : Bool {
         return description == "Ecrit un message..."
@@ -47,17 +46,7 @@ struct PostView: View {
                         Spacer()
                         
                         Button {
-                            var newPost = Post()
-                            newPost.userID = String(currentUser.id)
-                            newPost.postImage = "" /*loaderPicture.image*/
-                            newPost.description = description
-                            //                                posts.append(newPost)
-                            
-                            sendNewPost = true
-                            
-                            description = "Ecrit un message..."
-                            loaderPicture.image = nil
-                            UIApplication.shared.endEditing()
+                            createNewPost()
                         } label: {
                             
                             Text("Poster")
@@ -101,6 +90,20 @@ struct PostView: View {
         
     }
     
+    func createNewPost() {
+        var newPost = Post()
+        newPost.userID = String(currentUser.id)
+        newPost.postImage = "" /*loaderPicture.image*/
+        newPost.description = description
+        postsViewModel.addPost(newPost)
+        
+        sendNewPost = true
+        
+        description = "Ecrit un message..."
+        loaderPicture.image = nil
+        UIApplication.shared.endEditing()
+    }
+    
 }
 
 struct PostView_Previews: PreviewProvider {
@@ -108,10 +111,9 @@ struct PostView_Previews: PreviewProvider {
 
     static var previews: some View {
         PostView(
-            currentUser: CurrentUser(),
+            currentUser: CurrentUser(), postsViewModel: PostViewModel(),
             loaderPicture: .constant(LoaderPicture(
                 isImagePickerShown: false,
-                sourceType: UIImagePickerController.SourceType.photoLibrary)),
-            posts: posts)
+                sourceType: UIImagePickerController.SourceType.photoLibrary)))
     }
 }

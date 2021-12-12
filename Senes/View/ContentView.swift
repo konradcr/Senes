@@ -10,9 +10,10 @@ import SwiftUI
 struct ContentView: View {
     @State var isShowingOnboarding = false
     @StateObject var currentUser = CurrentUser()
+    @StateObject var activitiesViewModel = ActivitiesViewModel()
+    @StateObject var postsViewModel = PostViewModel()
     
     var posts: [Post] = Bundle.main.decode([Post].self, from: "posts.json", dateDecodingStrategy: .iso8601)
-    var activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json", dateDecodingStrategy: .iso8601)
     var interests: [Interest] = Bundle.main.decode([Interest].self, from: "interests.json")
     
     var body: some View {
@@ -21,13 +22,13 @@ struct ContentView: View {
             OnBoardingView(isShowingOnboarding: $isShowingOnboarding, currentUser: currentUser)
         } else  {
             TabView{
-                Communaute(currentUser: currentUser, posts: posts)
+                Communaute(currentUser: currentUser, activitiesViewModel: activitiesViewModel, postsViewModel: postsViewModel)
                     .tabItem{
                         Image(systemName: "person.3.fill")
                         Text("Communauté")
                     }
 
-                ActivitiesView(interests: interests, activities: activities)
+                ActivitiesView(currentUser: currentUser, activitiesViewModel: activitiesViewModel, interests: interests)
                     .tabItem{
                         Image(systemName: "calendar")
                         Text("Activités")
@@ -41,7 +42,7 @@ struct ContentView: View {
 
                 MyProfilView(currentUser: currentUser)
                     .tabItem{
-                        Image(systemName: "person.circle.fill")
+                        Image(systemName: "person.fill")
                         Text("Mon Profil")
                     }
             }

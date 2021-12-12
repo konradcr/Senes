@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct ActivityInfo: View {
+    @ObservedObject var currentUser: CurrentUser
+
     let activity: Activity
     
     var body: some View {
         VStack{
-            Image(activity.pictureActivity ?? "")
+            Image(activity.pictureActivity ?? activity.centerOfInterest.rawValue)
                 .resizable()
                 .scaledToFit()
                 .cornerRadius(10)
@@ -69,10 +71,14 @@ struct ActivityInfo: View {
                 
                 VStack {
                     Spacer()
-                    Button("Participer") {
-                        //
+                    Button(currentUser.isParticipating(activity: activity) ? "Ne plus participer" : "Participer") {
+                        if currentUser.isParticipating(activity: activity) {
+                            currentUser.unparticipateToActivity(activity: activity)
+                        } else {
+                            currentUser.participateToActivity(activity: activity)
+                        }
                     }
-                    .buttonPrincipalStyle(colorBck: Color.greenAction, foregroundColor: .white)
+                    .buttonPrincipalStyle(colorBck: currentUser.isParticipating(activity: activity) ? Color.red.opacity(0.6) : Color.greenAction, foregroundColor: Color.white)
                     .padding()
                 }
                 
@@ -88,7 +94,7 @@ struct ActivityInfo_Previews: PreviewProvider {
     static let activities = Bundle.main.decode([Activity].self, from: "activities.json", dateDecodingStrategy: .iso8601)
     
     static var previews: some View {
-        ActivityInfo(activity: activities[0])
+        ActivityInfo(currentUser: CurrentUser(), activity: activities[0])
             .environment(\.locale, Locale(identifier: "fr"))
     }
 }

@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct ProfilOtherUserView: View {
-    @ObservedObject var user: Person
     @ObservedObject var currentUser: CurrentUser
+    
+    let user: Person
     
     var body: some View {
        
@@ -21,26 +22,20 @@ struct ProfilOtherUserView: View {
                         // action contact
                     }
                     .font(.body)
-                    .buttonPrincipalStyle(colorBck: Color.greenAction, foregroundColor: Color.white)
+                    .buttonPrincipalStyle(colorBck: Color.greenContent, foregroundColor: Color.white)
                     Spacer()
-                    Button(user.isYourFriend ? "Retirer" : "Ajouter") {
-                        if user.isYourFriend {
+                    Button(currentUser.isYourFriend(user: user) ? "Retirer" : "Ajouter") {
+                        if currentUser.isYourFriend(user: user) {
                             currentUser.removeFriend(user: user)
-                            print(currentUser.friends)
-                            print(Date())
-                            self.user.isYourFriend = false
-                            
                         } else {
                             currentUser.addFriend(user: user)
-                            print(currentUser.friends)
-                            self.user.isYourFriend = true
                         }
                     }
                     .font(.body)
-                    .buttonPrincipalStyle(colorBck: user.isYourFriend ? Color.red.opacity(0.7) : Color.grayBackground, foregroundColor: user.isYourFriend ? Color.white : Color.black)
+                    .buttonPrincipalStyle(colorBck: currentUser.isYourFriend(user: user) ? Color.red.opacity(0.6) : Color.grayBackground, foregroundColor: currentUser.isYourFriend(user: user) ? Color.white : Color.black)
                     Spacer()
                 }
-                .padding()
+                .padding(.bottom)
                 Text("À propos de \(user.name)")
                     .foregroundColor(Color.greenAction)
                     .font(.title2)
@@ -50,7 +45,6 @@ struct ProfilOtherUserView: View {
                 DescriptionUserView(user: user)
             }
             .padding()
-      
     }
 }
 
@@ -117,6 +111,6 @@ struct ProfilOtherUserView_Previews: PreviewProvider {
     static var users: [Person] = Bundle.main.decode([Person].self, from: "users.json")
 
     static var previews: some View {
-        ProfilOtherUserView(user: users[0], currentUser: CurrentUser())
+        ProfilOtherUserView(currentUser: CurrentUser(), user: users[0])
     }
 }

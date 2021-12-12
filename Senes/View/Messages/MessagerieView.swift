@@ -51,7 +51,7 @@ struct MessagerieView: View {
     }
     
     var navBarLeadingBtn: some View {
-        NavigationLink(destination: ProfilOtherUserView(user: chat.person, currentUser: currentUser)) {
+        NavigationLink(destination: ProfilOtherUserView(currentUser: currentUser, user: chat.person)) {
             HStack {
                 Image(chat.person.profilPic)
                     .resizable()

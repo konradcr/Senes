@@ -12,7 +12,7 @@ struct ActivityCard: View {
     
     var body: some View {
         VStack {
-            Image(activity.pictureActivity ?? "")
+            Image(activity.pictureActivity ?? activity.centerOfInterest.rawValue)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             
