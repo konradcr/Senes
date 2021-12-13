@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MessagerieRow: View {
+    @Environment(\.dynamicTypeSize) var dynamicSize
     let chat: Chat
     
     var body: some View {
@@ -21,21 +22,38 @@ struct MessagerieRow: View {
             
             ZStack {
                 VStack(alignment: .leading, spacing: 5) {
-                    HStack {
-                        Text(chat.person.name)
-                            .bold()
-                        
-                        Spacer()
-                        
-                        Text(chat.messages.last?.sentTime.descriptiveString() ?? "")
-                    }
-                    HStack {
-                        Text(chat.messages.last?.text ?? "")
-                            .foregroundColor(.gray)
-                            .lineLimit(2)
-                            .frame(height: 50, alignment: .top)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.trailing, 40)
+                    if dynamicSize > DynamicTypeSize.xLarge {
+                        Group {
+                            Text(chat.person.name)
+                                .bold()
+                            Text(chat.messages.last?.sentTime.descriptiveString() ?? "")
+                            HStack {
+                                Text(chat.messages.last?.text ?? "")
+                                    .foregroundColor(.gray)
+                                    .lineLimit(2)
+                                    .frame(height: 50, alignment: .top)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.trailing, 40)
+                            }
+                        }
+                        .padding(.vertical)
+                    } else {
+                        HStack {
+                            Text(chat.person.name)
+                                .bold()
+                            
+                            Spacer()
+                            
+                            Text(chat.messages.last?.sentTime.descriptiveString() ?? "")
+                        }
+                        HStack {
+                            Text(chat.messages.last?.text ?? "")
+                                .foregroundColor(.gray)
+                                .lineLimit(2)
+                                .frame(height: 50, alignment: .top)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.trailing, 40)
+                        }
                     }
                 }
                 
@@ -45,12 +63,13 @@ struct MessagerieRow: View {
                     .frame(maxWidth: .infinity, alignment: .trailing)
             }
         }
-        .frame(height: 80)
+        //        .frame(height: 80)
     }
 }
 
 struct MessagerieRow_Previews: PreviewProvider {
     static var previews: some View {
         MessagerieRow(chat: Chat.sampleChat[2])
+            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
     }
 }

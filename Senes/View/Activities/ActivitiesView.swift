@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ActivitiesView: View {
+    @Environment(\.dynamicTypeSize) var sizeCategory
+
     @ObservedObject var currentUser: CurrentUser
     @ObservedObject var activitiesViewModel: ActivitiesViewModel
     
@@ -16,11 +18,19 @@ struct ActivitiesView: View {
     
     let interests : [Interest]
     
-    let gridLayout: [GridItem] = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
-    
+    var gridLayout: [GridItem] {
+        if sizeCategory > DynamicTypeSize.large {
+            return [
+                GridItem(.flexible())
+            ]
+        } else {
+            return [
+                GridItem(.flexible()),
+                GridItem(.flexible())
+            ]
+        }
+    }
+
     var body: some View {
         NavigationView {
             ScrollView {
@@ -28,7 +38,7 @@ struct ActivitiesView: View {
                     
                     ForEach(interests){ interest in
                         
-                        NavigationLink(destination: InterestActivity(currentUser: currentUser, activities: activitiesViewModel.activities, interest: interest.category)) {
+                        NavigationLink(destination: InterestActivity(currentUser: currentUser, activities: activitiesViewModel.activitiesSorted, interest: interest.category)) {
                             
                             ZStack(alignment: .leading) {
                                 GeometryReader { gr in
@@ -43,10 +53,13 @@ struct ActivitiesView: View {
                                 .aspectRatio(1, contentMode: .fit)
                                 HStack(alignment: .center){
                                     Text(interest.category.rawValue)
-                                        .font(.title)
                                         .fontWeight(.semibold)
                                         .foregroundColor(.white)
+                                        .font(.title)
+                                        
+                                        
                                 }
+                                
                                 .padding(.leading,5)
                             }
                             .padding(10)
@@ -82,6 +95,8 @@ struct ActivitiesView_Previews: PreviewProvider {
     
     static var previews: some View {
         ActivitiesView(currentUser: CurrentUser(), activitiesViewModel: ActivitiesViewModel(), interests: interests)
+            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
+
     }
 }
 

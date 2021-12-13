@@ -28,27 +28,26 @@ struct InscriptionView: View {
     
     
     var body: some View {
-        NavigationView{
+        NavigationView {
             
             Form {
-                Text("Bienvenue sur Senes !")
-                    .bold()
-                    .font(.title)
                 Section(header: Text("Inscription")) {
                     TextField("Votre mail", text: $email)
+                        .keyboardType(.emailAddress)
                     TextField("Nom d'utilisateur", text: $nom)
                     TextField("Ville",text: $ville)
                     TextField("Dites nous ce que vous recherchez!", text: $description)
                         .lineLimit(10)
-                    Button(action: {isShowingImagePicker.toggle()}) {
-                        HStack{
-                            Image(systemName: "camera.fill");
-                            Text("Ajoutez une photo de profil")
-                        }
-                    }
-                    
                 }
-                Divider()
+
+                Button(action: {isShowingImagePicker.toggle()}) {
+                    HStack{
+                        Image(systemName: "camera.fill");
+                        Text("Ajoutez une photo de profil")
+                    }
+                }
+                
+//                Divider()
                 Section(header: Text("Choissisez vos premiers centres d'intérets")) {
                     ForEach(interests) { i in
                         
@@ -57,7 +56,6 @@ struct InscriptionView: View {
                                 if let index = interestsChoosed.firstIndex(of: i.category)
                                 {
                                     interestsChoosed.remove(at: index)
-                                    
                                 }
                             }else {
                                 interestsChoosed.append(i.category)
@@ -93,7 +91,11 @@ struct InscriptionView: View {
             }.sheet(isPresented: $isShowingImagePicker){
                 ImagePicker(inputImage: $profilPic, sourceType: .photoLibrary)
             }
+            .navigationTitle("Bienvenue sur Senes !")
+            
         }
+        
+        
     }
     func createUser() {
 //        currentUser.name = nom
@@ -110,5 +112,6 @@ struct InscriptionView_Previews: PreviewProvider {
     
     static var previews: some View {
         InscriptionView(currentUser: CurrentUser(), isShowingInscription: .constant(true), interests: interests)
+//            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
     }
 }

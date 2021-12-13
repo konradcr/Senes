@@ -11,7 +11,7 @@ struct AboutSegmentView: View {
     @ObservedObject var currentUser: CurrentUser
     
     var body: some View {
-        VStack {
+        ScrollView {
             Text(currentUser.description)
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .center)

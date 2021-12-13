@@ -18,6 +18,7 @@ struct FriendProfilCell: View {
                 .frame(width: 90, height: 90)
                 .shadow(radius: 7)
             Text(friend.name)
+                
         }
         .padding()
     }
@@ -28,5 +29,7 @@ struct FriendProfilCell_Previews: PreviewProvider {
 
     static var previews: some View {
         FriendProfilCell(friend: users[0])
+            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
+
     }
 }

@@ -19,7 +19,7 @@ struct AskingCertificationView: View {
     @State private var showingAlert = false
     
     var body: some View {
-        VStack {
+        ScrollView {
             VStack {
                 
                 Image(currentUser.profilPic)

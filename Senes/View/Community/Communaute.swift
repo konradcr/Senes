@@ -43,6 +43,7 @@ struct Communaute: View {
                                 isNewActivityShow.toggle()
                             }, label: {
                                 Image(systemName: "calendar.badge.plus")
+                                    .reduceDynamicSize()
                                     .modifier(ImageModifierWithBackGround())
                             })
                         }
@@ -72,5 +73,6 @@ struct Communaute_Previews: PreviewProvider {
     
     static var previews: some View {
         Communaute(currentUser: CurrentUser(), activitiesViewModel: ActivitiesViewModel(), postsViewModel: PostViewModel())
+            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
     }
 }

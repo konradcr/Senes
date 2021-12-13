@@ -22,7 +22,7 @@ struct MyProfilView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            ScrollView {
                 Group {
                     PresentationProfilCard(currentUser: currentUser)
                     Picker("What is your favorite color?", selection: $segmentedProfile) {
@@ -64,5 +64,6 @@ struct MyProfilView: View {
 struct MyProfilView_Previews: PreviewProvider {
     static var previews: some View {
         MyProfilView(currentUser: CurrentUser())
+            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
     }
 }

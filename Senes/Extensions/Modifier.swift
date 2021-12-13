@@ -36,13 +36,27 @@ struct ButtonMediaStyle: ViewModifier {
     }
 }
 
+struct ReduceDynamicSize: ViewModifier {
+    @Environment(\.sizeCategory) var sizeCategory
+    
+    func body(content: Content) -> some View {
+        if sizeCategory > ContentSizeCategory.extraLarge {
+            content
+                .font(.subheadline)
+        } else {
+            content
+//                .font(.title2)
+        }
+    }
+}
+
 struct ButtonStyle: ViewModifier {
     let colorBck: Color
     let foregroundColor : Color
     
     func body(content: Content) -> some View {
         content
-            .font(.title)
+            .font(.title3)
             .foregroundColor(foregroundColor)
             .padding()
             .background(colorBck)
@@ -116,6 +130,7 @@ struct InterestModifierImg : ViewModifier{
             .padding(.trailing,12)
     }
 }
+
 extension View {
     func modifierForButonWithGeo(colorBck: Color,foregroundColor: Color, geo: GeometryProxy) -> some View {
         modifier(ButtonPrincipalStyle(colorBck: colorBck, foregroundColor: foregroundColor, geo: geo))
@@ -132,7 +147,9 @@ extension View {
     func modifierForImageWithGeo(geo: GeometryProxy) -> some View {
         modifier(ImageModifierWhitGeo(geo: geo))
     }
-    
+    func reduceDynamicSize() -> some View {
+        modifier(ReduceDynamicSize())
+    }
 }
 
 

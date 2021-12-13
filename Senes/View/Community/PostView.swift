@@ -9,6 +9,7 @@ import SwiftUI
 
 
 struct PostView: View {
+    
     @ObservedObject var currentUser: CurrentUser
     @ObservedObject var postsViewModel: PostViewModel
     
@@ -50,10 +51,11 @@ struct PostView: View {
                         } label: {
                             
                             Text("Poster")
-                                .font(.title)
-                                .bold()
                         }
-                        .modifierForButonWithGeo(colorBck: colorbtnIfIsValidColor, foregroundColor: .white, geo: geo)
+                        .reduceDynamicSize()
+                        .buttonPrincipalStyle(colorBck: Color.greenAction, foregroundColor: .white)
+                        
+//                        .modifierForButonWithGeo(colorBck: colorbtnIfIsValidColor, foregroundColor: .white, geo: geo)
                         .disabled(isValid)
                         
                         Spacer()
@@ -74,7 +76,9 @@ struct PostView: View {
                                     .modifier(ImageModifier())
                             }
                         }
-                        .modifierForButonWithGeo(colorBck: .white, foregroundColor: .black, geo: geo)
+                        .reduceDynamicSize()
+                        .buttonPrincipalStyle(colorBck: Color.white, foregroundColor: .black)
+                        
                         Spacer()
                     }
                 }
@@ -114,6 +118,8 @@ struct PostView_Previews: PreviewProvider {
             currentUser: CurrentUser(), postsViewModel: PostViewModel(),
             loaderPicture: .constant(LoaderPicture(
                 isImagePickerShown: false,
-                sourceType: UIImagePickerController.SourceType.photoLibrary)))
+                sourceType: UIImagePickerController.SourceType.photoLibrary))
+        )
+        
     }
 }

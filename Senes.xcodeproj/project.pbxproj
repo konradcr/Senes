@@ -544,6 +544,10 @@
 				DEVELOPMENT_TEAM = M6Z8JUW5F9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "L'accès au calendrier permet d'ajouter des activités planifiées.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "L'utilisation de la caméra permet de publier des photos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "L'accès à la librairie permet de publier des photos.";
+				INFOPLIST_KEY_NSRemindersUsageDescription = "L'accès aur rappels permet d'ajouter des activités planifiées.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -573,6 +577,10 @@
 				DEVELOPMENT_TEAM = M6Z8JUW5F9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "L'accès au calendrier permet d'ajouter des activités planifiées.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "L'utilisation de la caméra permet de publier des photos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "L'accès à la librairie permet de publier des photos.";
+				INFOPLIST_KEY_NSRemindersUsageDescription = "L'accès aur rappels permet d'ajouter des activités planifiées.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

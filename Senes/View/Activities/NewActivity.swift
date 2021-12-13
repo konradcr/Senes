@@ -9,20 +9,23 @@
 import SwiftUI
 
 struct NewActivity: View {
+    @Environment(\.dynamicTypeSize) var sizeCategory
     @ObservedObject var user: CurrentUser
     @ObservedObject var activitiesViewModel: ActivitiesViewModel
     
     @Binding var isPresented : Bool
     @State var sendNewPost = false
-    
-    @State var newActivity: Activity = Activity()
+
     @State private var title: String = ""
     @State private var location: String = ""
     @State private var description: String = "Description de l'activité... \n \n"
     @State private var totalChars = 0
     @State private var lastText = ""
     let placeHolderDescription = "Description de l'activité... \n \n"
+    @State private var centerOfInterest: CenterOfInterest = .arts
     @State private var numberParticipants: Int = 10
+    @State private var dateStart: Date = Date()
+    @State private var dateEnd: Date = Date(timeIntervalSinceNow: 3600)
     
     @State var loaderPicture = LoaderPicture(isImagePickerShown: false,
                                              sourceType: UIImagePickerController.SourceType.photoLibrary)
@@ -50,7 +53,7 @@ struct NewActivity: View {
                         HStack{
                             Text("Centre d'intérêt")
                             Spacer()
-                            Picker("Choisissez une catégorie", selection: $newActivity.centerOfInterest) {
+                            Picker("Choisissez une catégorie", selection: $centerOfInterest) {
                                 ForEach(CenterOfInterest.allCases, id: \.self) { interet in
                                     Text(interet.rawValue)
                                 }
@@ -58,48 +61,106 @@ struct NewActivity: View {
                             .pickerStyle(.menu)
                         }
                     }
-                    
+                    if sizeCategory > DynamicTypeSize.large {
                     Section {
-                        DatePicker("Début", selection: $newActivity.dateStartActivity)
-                        DatePicker("Fin", selection: $newActivity.dateEndActivity)
+                        
+                            
+                            Section("Début") {
+                                DatePicker("", selection: $dateStart)
+                            }
+                            
+                            Section("Fin") {
+                                DatePicker("", selection: $dateEnd)
+                            }
+                            HStack {
+                                Stepper("",
+                                        value: $numberParticipants, in: 2...100)
+                                Spacer()
+                            }
+                                    
+                            Text("\(numberParticipants) participants max")
+                            
+                        }
+                        ZStack {
+                            TextEditor(text: $description)
+                                .foregroundColor(description == placeHolderDescription ? .gray : .primary)
+                                .padding(.horizontal)
+                                .cornerRadius(20)
+                                .background(RoundedRectangle(cornerRadius: 5).stroke(Color.black.opacity(0.5)))
+                                
+                                .onTapGesture {
+                                    if self.description == placeHolderDescription {
+                                        self.description = ""
+                                    }
+                                }
+                                .onChange(of: description) { text in
+                                    totalChars = text.count
+
+                                    if totalChars <= 400 {
+                                        lastText = text
+                                    } else {
+                                        self.description = lastText
+                                    }
+                                }
+                                
+                            VStack {
+                                Spacer()
+                                HStack {
+                                    Spacer()
+                                    Text("\(totalChars) / 400")
+                                        .foregroundColor(.secondary)
+                                        .font(.subheadline)
+                                        .padding(5)
+                                }
+                                .frame(minHeight: 200)
+                            }
+                            
+                        }
+                    }
+                    else {
+                        Section {
+                        DatePicker("Début", selection: $dateStart)
+                        DatePicker("Fin", selection: $dateEnd)
                         Stepper("\(numberParticipants) participants max",
                                 value: $numberParticipants, in: 2...100)
                     }
-                    
-                    ZStack {
-                        TextEditor(text: $description)
-                            .foregroundColor(description == placeHolderDescription ? .gray : .primary)
-                            .padding(.horizontal)
-                            .cornerRadius(20)
-                            .background(RoundedRectangle(cornerRadius: 5).stroke(Color.black.opacity(0.5)))
-                            
-                            .onTapGesture {
-                                if self.description == placeHolderDescription {
-                                    self.description = ""
+                        ZStack {
+                            TextEditor(text: $description)
+                                .foregroundColor(description == placeHolderDescription ? .gray : .primary)
+                                .padding(.horizontal)
+                                .cornerRadius(20)
+                                .background(RoundedRectangle(cornerRadius: 5).stroke(Color.black.opacity(0.5)))
+                                
+                                .onTapGesture {
+                                    if self.description == placeHolderDescription {
+                                        self.description = ""
+                                    }
                                 }
-                            }
-                            .onChange(of: description) { text in
-                                totalChars = text.count
+                                .onChange(of: description) { text in
+                                    totalChars = text.count
 
-                                if totalChars <= 400 {
-                                    lastText = text
-                                } else {
-                                    self.description = lastText
+                                    if totalChars <= 400 {
+                                        lastText = text
+                                    } else {
+                                        self.description = lastText
+                                    }
+                                }
+                                
+                            VStack {
+                                Spacer()
+                                HStack {
+                                    Spacer()
+                                    Text("\(totalChars) / 400")
+                                        .foregroundColor(.secondary)
+                                        .font(.subheadline)
+                                        .padding(5)
                                 }
                             }
                             
-                        VStack {
-                            Spacer()
-                            HStack {
-                                Spacer()
-                                Text("\(totalChars) / 400")
-                                    .foregroundColor(.secondary)
-                                    .font(.subheadline)
-                                    .padding(5)
-                            }
                         }
-                        
                     }
+                    
+                   
                 }
                 
                 if let image = loaderPicture.image {
@@ -151,10 +212,14 @@ struct NewActivity: View {
         }
     }
     func createActivity() {
+        var newActivity = Activity()
         newActivity.title = self.title
         newActivity.location = self.location
         newActivity.description = self.description
         newActivity.numberParticipants = self.numberParticipants
+        newActivity.dateStartActivity = self.dateStart
+        newActivity.dateEndActivity = self.dateEnd
+        newActivity.centerOfInterest = self.centerOfInterest
        
         user.activities.append(newActivity)
         activitiesViewModel.addActivity(newActivity)
@@ -177,5 +242,7 @@ struct NewActivity: View {
 struct NewActivity_Previews: PreviewProvider {
     static var previews: some View {
         NewActivity(user: CurrentUser(), activitiesViewModel: ActivitiesViewModel(), isPresented: .constant(true))
+//            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
+
     }
 }

@@ -9,11 +9,11 @@ import Foundation
 
 class Person: Identifiable, Hashable, Equatable, ObservableObject, Codable {
     @Published var id: String = UUID().uuidString
-    @Published var name: String = ""
-    @Published var city: String = ""
-    @Published var description: String = ""
+    @Published var name: String = "Germaine"
+    @Published var city: String = "Marseilles"
+    @Published var description: String = "dsqghfdgdgddsqghfdgdgdfgdsgdsqghfdgdgdfgdsgdsqghfdgdgdfgdsgdsqghfdgdgdfgdsgdsqghfdgdgdfgdsgdsqghfdgdgdfgdsgdsqghfdgdgdfgdsgdsqghfdgdgdfgdsgdsqghfdgdgdfgdsgdsqghfdgdgdfgdsgdsqghfdgdgdfgdsgdsqghfdgdgdfgdsgfgdsg"
     @Published var profilPic : String = "Germaine"
-    @Published var centersOfInterest: [CenterOfInterest] = []
+    @Published var centersOfInterest: [CenterOfInterest] = [.arts, .jardinage]
     @Published var isCertified: Bool = false
     
     func hash(into hasher: inout Hasher) {
