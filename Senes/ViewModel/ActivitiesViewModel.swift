@@ -19,4 +19,10 @@ class ActivitiesViewModel: ObservableObject {
             activities.remove(at: index)
         }
     }
+    
+    var activitiesSorted: [Activity] {
+        return activities.sorted {
+            $0.dateStartActivity > $1.dateStartActivity
+        }
+    }
 }

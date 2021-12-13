@@ -15,7 +15,6 @@
 		7127E67A2766231900842900 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127E6792766231900842900 /* Person.swift */; };
 		7127E67D27664FC300842900 /* ActivitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127E67C27664FC300842900 /* ActivitiesViewModel.swift */; };
 		7127E67F27665AC300842900 /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127E67E27665AC300842900 /* PostsViewModel.swift */; };
-		7127E68127665D9D00842900 /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127E68027665D9C00842900 /* NewPostView.swift */; };
 		71292C302763BA4500F93BE4 /* ActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C2C2763BA4500F93BE4 /* ActivitiesView.swift */; };
 		71292C312763BA4500F93BE4 /* InterestActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C2D2763BA4500F93BE4 /* InterestActivity.swift */; };
 		71292C322763BA4500F93BE4 /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C2E2763BA4500F93BE4 /* ActivityCard.swift */; };
@@ -71,7 +70,6 @@
 		7127E6792766231900842900 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		7127E67C27664FC300842900 /* ActivitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewModel.swift; sourceTree = "<group>"; };
 		7127E67E27665AC300842900 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
-		7127E68027665D9C00842900 /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
 		71292C2C2763BA4500F93BE4 /* ActivitiesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesView.swift; sourceTree = "<group>"; };
 		71292C2D2763BA4500F93BE4 /* InterestActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestActivity.swift; sourceTree = "<group>"; };
 		71292C2E2763BA4500F93BE4 /* ActivityCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
@@ -251,7 +249,6 @@
 			children = (
 				71BEFF9D2763AF8000BF197F /* Communaute.swift */,
 				71BEFFA02763AF8000BF197F /* PostView.swift */,
-				7127E68027665D9C00842900 /* NewPostView.swift */,
 				71BEFF9E2763AF8000BF197F /* ExtractPost.swift */,
 				71BEFF9C2763AF8000BF197F /* PostDetailView.swift */,
 			);
@@ -405,7 +402,6 @@
 				71292C502763C15500F93BE4 /* ActivitiesSegmentView.swift in Sources */,
 				71292C372763C05A00F93BE4 /* MessagerieView.swift in Sources */,
 				71BEFFBD2763AF8000BF197F /* PageView .swift in Sources */,
-				7127E68127665D9D00842900 /* NewPostView.swift in Sources */,
 				71BEFFC92763AF8000BF197F /* ImagePicker.swift in Sources */,
 				71BEFFB72763AF8000BF197F /* Communaute.swift in Sources */,
 				7127E67D27664FC300842900 /* ActivitiesViewModel.swift in Sources */,

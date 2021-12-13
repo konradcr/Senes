@@ -14,51 +14,39 @@ struct OnBoardingView: View {
     
     var body: some View {
         TabView{
-            
             PageView(
                 currentUser: currentUser, isShowingOnboarding: $isShowingOnboarding,
-                     title: "Rencontre amicale",
-                     subtitle: "Papi fun est chaud",
-                     image: "avatars",
-                     showDismissButon:false,
-                     color: Color.grisContent
+                title: "Rencontrez et partagez ",
+                subtitle: "Votre prochain camarade de belotte est peut-être moins loin que vous ne le croyez ! ",
+                image: "avatars",
+                showDismissButon:false,
+                color: Color.grisContent
             )
             PageView(
                 currentUser: currentUser, isShowingOnboarding: $isShowingOnboarding,
-                     title: "Discutez ",
-                     subtitle: "Restons connectés !",
-                     image:"discussion" ,
-                     showDismissButon:false,
-                     color: Color.grisContent
+                title: "Discutez ! ",
+                subtitle: "Notre messagerie simple permet de vous rapprocher de n'importe quel passioné en un rien de temps.",
+                image:"discussion" ,
+                showDismissButon:false,
+                color: Color.grisContent
             )
             PageView(
                 currentUser: currentUser, isShowingOnboarding: $isShowingOnboarding,
-                     title: "Bougez",
-                     subtitle: "Participez à des activités avec d'autres membres de la communauté!",
-                     image: "activités mamie",
-                     showDismissButon:false,
-                     color: Color.grisContent
+                title: "Lancez vous",
+                subtitle: "Très peu pour vous la vie d'hermite ? Sur Senes, vous n'êtes plus seul, organisez et participez des activitées entre membres !",
+                image: "activités mamie",
+                showDismissButon: true,
+                color: Color.grisContent
             )
-            PageView(
-                currentUser: currentUser, isShowingOnboarding: $isShowingOnboarding,
-                     title: "Home",
-                     subtitle: "discussion",
-                     image: "discussion",
-                     showDismissButon:true,
-                     color: Color.grisContent
-            )
-               
-            
-            
         } .edgesIgnoringSafeArea(.all)
-        .tabViewStyle(PageTabViewStyle())
+            .tabViewStyle(PageTabViewStyle())
         
     }
 }
 
 
-        
-    
+
+
 
 
 struct OnBoardingView_Previews: PreviewProvider {

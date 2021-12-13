@@ -22,6 +22,7 @@ struct NewActivity: View {
     @State private var totalChars = 0
     @State private var lastText = ""
     let placeHolderDescription = "Description de l'activité... \n \n"
+    @State private var numberParticipants: Int = 10
     
     @State var loaderPicture = LoaderPicture(isImagePickerShown: false,
                                              sourceType: UIImagePickerController.SourceType.photoLibrary)
@@ -61,8 +62,8 @@ struct NewActivity: View {
                     Section {
                         DatePicker("Début", selection: $newActivity.dateStartActivity)
                         DatePicker("Fin", selection: $newActivity.dateEndActivity)
-                        Stepper("\(newActivity.numberParticipants) participants max",
-                                value: $newActivity.numberParticipants, in: 2...100)
+                        Stepper("\(numberParticipants) participants max",
+                                value: $numberParticipants, in: 2...100)
                     }
                     
                     ZStack {
@@ -150,9 +151,11 @@ struct NewActivity: View {
         }
     }
     func createActivity() {
-        self.newActivity.title = title
-        self.newActivity.location = location
-        self.newActivity.description = description
+        newActivity.title = self.title
+        newActivity.location = self.location
+        newActivity.description = self.description
+        newActivity.numberParticipants = self.numberParticipants
+       
         user.activities.append(newActivity)
         activitiesViewModel.addActivity(newActivity)
         sendNewPost = true

@@ -12,7 +12,7 @@ class Person: Identifiable, Hashable, Equatable, ObservableObject, Codable {
     @Published var name: String = ""
     @Published var city: String = ""
     @Published var description: String = ""
-    @Published var profilPic : String = ""
+    @Published var profilPic : String = "Germaine"
     @Published var centersOfInterest: [CenterOfInterest] = []
     @Published var isCertified: Bool = false
     

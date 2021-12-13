@@ -13,6 +13,7 @@ struct PageView : View {
     @ObservedObject var currentUser: CurrentUser
     @State private var isShowingInscription = false
     @Binding var isShowingOnboarding : Bool
+    @State private var animationAmount = 1.0
     
     let title:String
     let subtitle:String
@@ -25,18 +26,30 @@ struct PageView : View {
             Image(image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-            
-            
-            
+                .scaleEffect(animationAmount / 2)
+                .animation(
+                    .easeIn(duration: 0.5),value: animationAmount
+                )
+                .onAppear {
+                    animationAmount = 2
+                }
             
             Text(title)
-                .font(.system(size:32))
+                .foregroundColor(Color.greenAction)
+                .bold()
                 .padding()
+                .font(.largeTitle)
+                .scaleEffect(animationAmount / 2)
+                .animation(
+                    .easeIn(duration: 1),value: animationAmount)
+                .onAppear {
+                    animationAmount = 2
+                }
             
             Text(subtitle)
-                .font(.system(size: 24))
-                .multilineTextAlignment(.center)
-                .foregroundColor(Color(.secondaryLabel))
+                .font(.title3)
+                .multilineTextAlignment(.leading)
+                .foregroundColor(Color.greenAction)
                 .padding()
             
             if showDismissButon {
