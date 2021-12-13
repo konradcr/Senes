@@ -14,37 +14,40 @@ struct ProfilOtherUserView: View {
     
     var body: some View {
        
+        ScrollView {
             VStack(alignment: .leading) {
-                PresentationProfilUserCard(user: user)
-                HStack {
-                    Spacer()
-                    Button("Contacter") {
-                        // action contact
-                    }
-                    .font(.body)
-                    .buttonPrincipalStyle(colorBck: Color.greenContent, foregroundColor: Color.white)
-                    Spacer()
-                    Button(currentUser.isYourFriend(user: user) ? "Retirer" : "Ajouter") {
-                        if currentUser.isYourFriend(user: user) {
-                            currentUser.removeFriend(user: user)
-                        } else {
-                            currentUser.addFriend(user: user)
+                    PresentationProfilUserCard(user: user)
+                    HStack {
+                        Spacer()
+                        Button("Contacter") {
+                            // action contact
                         }
+                        .font(.body)
+                        .buttonPrincipalStyle(colorBck: Color.greenContent, foregroundColor: Color.white)
+                        Spacer()
+                        Button(currentUser.isYourFriend(user: user) ? "Retirer" : "Ajouter") {
+                            if currentUser.isYourFriend(user: user) {
+                                currentUser.removeFriend(user: user)
+                            } else {
+                                currentUser.addFriend(user: user)
+                            }
+                        }
+                        .font(.body)
+                        .buttonPrincipalStyle(colorBck: currentUser.isYourFriend(user: user) ? Color.red.opacity(0.6) : Color.grayBackground, foregroundColor: currentUser.isYourFriend(user: user) ? Color.white : Color.black)
+                        Spacer()
                     }
-                    .font(.body)
-                    .buttonPrincipalStyle(colorBck: currentUser.isYourFriend(user: user) ? Color.red.opacity(0.6) : Color.grayBackground, foregroundColor: currentUser.isYourFriend(user: user) ? Color.white : Color.black)
-                    Spacer()
+                    .padding(.bottom)
+                    Text("À propos de \(user.name)")
+                        .foregroundColor(Color.greenAction)
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                        .frame(alignment: .leading)
+                    
+                    DescriptionUserView(user: user)
                 }
-                .padding(.bottom)
-                Text("À propos de \(user.name)")
-                    .foregroundColor(Color.greenAction)
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .frame(alignment: .leading)
-                
-                DescriptionUserView(user: user)
-            }
             .padding()
+        } .navigationBarTitle(user.name)
+            .navigationBarTitleDisplayMode(.inline)
     }
 }
 

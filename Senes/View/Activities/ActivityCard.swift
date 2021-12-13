@@ -25,6 +25,8 @@ struct ActivityCard: View {
                             Text(activity.title)
                                 .font(.title)
                                 .bold()
+                                .lineLimit(nil)
+                                .fixedSize(horizontal: false, vertical: true)
                             Text(activity.dateStartActivity.formatted(date: .abbreviated, time: .omitted))
                             Text(activity.dateStartActivity.formatted(date: .omitted, time: .shortened))
                             Text(activity.location)
@@ -37,7 +39,8 @@ struct ActivityCard: View {
                         Text(activity.title)
                             .font(.title)
                             .bold()
-                            .lineLimit(2)
+                            .lineLimit(nil)
+                            .fixedSize(horizontal: false, vertical: true)
                         Text(activity.dateStartActivity.formatted(date: .abbreviated, time: .shortened))
                         Text(activity.location)
                     }
@@ -60,7 +63,7 @@ struct ActivityCard_Previews: PreviewProvider {
     static var activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json", dateDecodingStrategy: .iso8601)
     
     static var previews: some View {
-        NavigationView {
+        List {
             ActivityCard(activity: activities[0])
                 .environment(\.locale, Locale(identifier: "fr"))
         }

@@ -13,7 +13,7 @@ struct OnBoardingView: View {
     @ObservedObject var currentUser: CurrentUser
     
     var body: some View {
-        TabView{
+        TabView {
             PageView(
                 currentUser: currentUser, isShowingOnboarding: $isShowingOnboarding,
                 title: "Rencontrez et partagez ",
@@ -38,8 +38,9 @@ struct OnBoardingView: View {
                 showDismissButon: true,
                 color: Color.grisContent
             )
-        } .edgesIgnoringSafeArea(.all)
-            .tabViewStyle(PageTabViewStyle())
+        }
+        .edgesIgnoringSafeArea(.all)
+        .tabViewStyle(PageTabViewStyle())
         
     }
 }

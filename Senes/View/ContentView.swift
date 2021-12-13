@@ -13,12 +13,10 @@ struct ContentView: View {
     @StateObject var activitiesViewModel = ActivitiesViewModel()
     @StateObject var postsViewModel = PostViewModel()
     
-    var posts: [Post] = Bundle.main.decode([Post].self, from: "posts.json", dateDecodingStrategy: .iso8601)
     var interests: [Interest] = Bundle.main.decode([Interest].self, from: "interests.json")
     
     var body: some View {
         if isShowingOnboarding {
-            EmptyView()
             OnBoardingView(isShowingOnboarding: $isShowingOnboarding, currentUser: currentUser)
         } else  {
             TabView{

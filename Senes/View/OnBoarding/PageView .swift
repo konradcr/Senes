@@ -70,16 +70,8 @@ struct PageView : View {
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(color)
-//            .sheet(isPresented: $isShowingInscription, onDismiss: { isShowingOnboarding = false }){
-//                InscriptionView(currentUser: currentUser, isShowingInscription: $isShowingInscription)
-//                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-//                    .background(Color.grisContent)
-//                    
-//            }
             .fullScreenCover(isPresented: $isShowingInscription, onDismiss: { isShowingOnboarding = false }) {
                 InscriptionView(currentUser: currentUser, isShowingInscription: $isShowingInscription)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color.grisContent)
             }
     }
 }

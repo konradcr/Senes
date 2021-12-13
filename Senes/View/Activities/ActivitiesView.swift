@@ -58,6 +58,7 @@ struct ActivitiesView: View {
                                         .font(.title)
                                         
                                         
+                                        
                                 }
                                 
                                 .padding(.leading,5)

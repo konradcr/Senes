@@ -14,8 +14,8 @@ class CurrentUser: Person {
     @Published var myPost = [Post]()
     
     func fakeInscription() {
-        let users: [Person] = Bundle.main.decode([Person].self, from: "users.json")
-        let activities: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json", dateDecodingStrategy: .iso8601)
+        let usersJson: [Person] = Bundle.main.decode([Person].self, from: "users.json")
+        let activitiesJson: [Activity] = Bundle.main.decode([Activity].self, from: "activities.json", dateDecodingStrategy: .iso8601)
 
         self.id = UUID().uuidString
         self.name = "Germaine"
@@ -24,8 +24,8 @@ class CurrentUser: Person {
         self.profilPic = "Germaine"
         self.centersOfInterest = [.arts, .jardinage]
         self.isCertified = false
-        self.friends = [users[0], users[1], users[3]]
-        self.activities = [activities[0], activities[4]]
+        self.friends = [usersJson[0], usersJson[1], usersJson[3]]
+        self.activities = [activitiesJson[0], activitiesJson[4]]
         self.chats = []
         self.myPost = []
     }

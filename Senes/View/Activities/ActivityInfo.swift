@@ -15,7 +15,7 @@ struct ActivityInfo: View {
     let activity: Activity
     
     var body: some View {
-        VStack{
+        ScrollView {
             Image(activity.pictureActivity ?? activity.centerOfInterest.rawValue)
                 .resizable()
                 .scaledToFit()
@@ -27,7 +27,7 @@ struct ActivityInfo: View {
                     .foregroundColor(.greenContent)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 
-                ScrollView {
+                VStack {
                     VStack(alignment: .leading) {
                         Group{
                             HStack {
@@ -129,6 +129,6 @@ struct ActivityInfo_Previews: PreviewProvider {
     static var previews: some View {
         ActivityInfo(currentUser: CurrentUser(), activity: activities[0])
             .environment(\.locale, Locale(identifier: "fr"))
-            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
+//            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
     }
 }

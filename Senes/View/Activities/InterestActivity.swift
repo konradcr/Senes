@@ -49,6 +49,8 @@ struct InterestActivity: View {
                 
             }.listRowSeparator(.hidden)
             .navigationBarTitle("\(interest.rawValue)")
+            .navigationBarTitleDisplayMode(.inline)
+            
         }
         .searchable(text: $text)
     }
@@ -61,6 +63,7 @@ struct InterestActivity_Previews: PreviewProvider {
     static var previews: some View {
         InterestActivity(currentUser: CurrentUser(), activities: activities, interest: .arts)
             .environment(\.locale, Locale(identifier: "fr"))
+            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
     }
 }
 

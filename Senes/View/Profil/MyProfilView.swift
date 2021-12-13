@@ -22,7 +22,7 @@ struct MyProfilView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
+            VStack {
                 Group {
                     PresentationProfilCard(currentUser: currentUser)
                     Picker("What is your favorite color?", selection: $segmentedProfile) {
@@ -31,6 +31,7 @@ struct MyProfilView: View {
                         }
                     }
                     .pickerStyle(.segmented)
+                    
                 }
                 .padding(.horizontal)
                 
