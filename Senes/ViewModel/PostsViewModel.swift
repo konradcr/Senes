@@ -19,4 +19,10 @@ class PostViewModel: ObservableObject {
             posts.remove(at: index)
         }
     }
+    
+    var postsSorted: [Post] {
+        return posts.sorted {
+            $0.datePost > $1.datePost
+        }
+    }
 }

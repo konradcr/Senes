@@ -36,6 +36,8 @@
 		71292C512763C15500F93BE4 /* CertificationAsked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C452763C15500F93BE4 /* CertificationAsked.swift */; };
 		714DFB872763D7D500DAA1F3 /* interests.json in Resources */ = {isa = PBXBuildFile; fileRef = 714DFB862763D7D500DAA1F3 /* interests.json */; };
 		715D8DC32768AD6A0017F2F2 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715D8DC22768AD690017F2F2 /* Weather.swift */; };
+		7178C16D2768DD9300D191FC /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178C16C2768DD9300D191FC /* NewPostView.swift */; };
+		7178C1712768F1FF00D191FC /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178C1702768F1FF00D191FC /* TabController.swift */; };
 		71BEFF872763AF4F00BF197F /* SenesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BEFF862763AF4F00BF197F /* SenesApp.swift */; };
 		71BEFF8B2763AF5200BF197F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71BEFF8A2763AF5200BF197F /* Assets.xcassets */; };
 		71BEFF8E2763AF5200BF197F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71BEFF8D2763AF5200BF197F /* Preview Assets.xcassets */; };
@@ -92,6 +94,8 @@
 		71292C452763C15500F93BE4 /* CertificationAsked.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificationAsked.swift; sourceTree = "<group>"; };
 		714DFB862763D7D500DAA1F3 /* interests.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = interests.json; sourceTree = "<group>"; };
 		715D8DC22768AD690017F2F2 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		7178C16C2768DD9300D191FC /* NewPostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
+		7178C1702768F1FF00D191FC /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		71BEFF832763AF4F00BF197F /* Senes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Senes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71BEFF862763AF4F00BF197F /* SenesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenesApp.swift; sourceTree = "<group>"; };
 		71BEFF8A2763AF5200BF197F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				71BEFF952763AF8000BF197F /* CurrentUser.swift */,
+				7178C1702768F1FF00D191FC /* TabController.swift */,
 				71BEFF962763AF8000BF197F /* MessagerieViewModel.swift */,
 				7127E67C27664FC300842900 /* ActivitiesViewModel.swift */,
 				7127E67E27665AC300842900 /* PostsViewModel.swift */,
@@ -251,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				71BEFF9D2763AF8000BF197F /* Communaute.swift */,
+				7178C16C2768DD9300D191FC /* NewPostView.swift */,
 				71BEFFA02763AF8000BF197F /* PostView.swift */,
 				71BEFF9E2763AF8000BF197F /* ExtractPost.swift */,
 				71BEFF9C2763AF8000BF197F /* PostDetailView.swift */,
@@ -392,6 +398,7 @@
 				7127E6722766225900842900 /* Post.swift in Sources */,
 				71BEFFBB2763AF8000BF197F /* CustomTextView.swift in Sources */,
 				71BEFF872763AF4F00BF197F /* SenesApp.swift in Sources */,
+				7178C1712768F1FF00D191FC /* TabController.swift in Sources */,
 				71BEFFBE2763AF8000BF197F /* InscriptionView.swift in Sources */,
 				71292C462763C15500F93BE4 /* CertificationView.swift in Sources */,
 				7127E67A2766231900842900 /* Person.swift in Sources */,
@@ -407,6 +414,7 @@
 				71BEFFBD2763AF8000BF197F /* PageView .swift in Sources */,
 				715D8DC32768AD6A0017F2F2 /* Weather.swift in Sources */,
 				71BEFFC92763AF8000BF197F /* ImagePicker.swift in Sources */,
+				7178C16D2768DD9300D191FC /* NewPostView.swift in Sources */,
 				71BEFFB72763AF8000BF197F /* Communaute.swift in Sources */,
 				7127E67D27664FC300842900 /* ActivitiesViewModel.swift in Sources */,
 				7127E67F27665AC300842900 /* PostsViewModel.swift in Sources */,

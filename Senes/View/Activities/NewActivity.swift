@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct NewActivity: View {
-    @Environment(\.dynamicTypeSize) var sizeCategory
+    @Environment(\.dynamicTypeSize) var dynamicType
     @ObservedObject var user: CurrentUser
     @ObservedObject var activitiesViewModel: ActivitiesViewModel
     
     @Binding var isPresented : Bool
     @State var sendNewPost = false
-
+    
     @State private var title: String = ""
     @State private var location: String = ""
     @State private var description: String = "Description de l'activité... \n \n"
@@ -61,10 +61,9 @@ struct NewActivity: View {
                             .pickerStyle(.menu)
                         }
                     }
-                    if sizeCategory > DynamicTypeSize.large {
-                    Section {
+                    if dynamicType > DynamicTypeSize.large {
                         
-                            
+                        Section {
                             Section("Début") {
                                 DatePicker("", selection: $dateStart)
                             }
@@ -72,14 +71,10 @@ struct NewActivity: View {
                             Section("Fin") {
                                 DatePicker("", selection: $dateEnd)
                             }
-                            HStack {
-                                Stepper("",
-                                        value: $numberParticipants, in: 2...100)
+                            Section("\(numberParticipants) participants max") {
+                                Stepper("", value: $numberParticipants, in: 2...100)
                                 Spacer()
                             }
-                                    
-                            Text("\(numberParticipants) participants max")
-                            
                         }
                         ZStack {
                             TextEditor(text: $description)
@@ -87,7 +82,7 @@ struct NewActivity: View {
                                 .padding(.horizontal)
                                 .cornerRadius(20)
                                 .background(RoundedRectangle(cornerRadius: 5).stroke(Color.black.opacity(0.5)))
-                                
+                            
                                 .onTapGesture {
                                     if self.description == placeHolderDescription {
                                         self.description = ""
@@ -95,14 +90,14 @@ struct NewActivity: View {
                                 }
                                 .onChange(of: description) { text in
                                     totalChars = text.count
-
+                                    
                                     if totalChars <= 400 {
                                         lastText = text
                                     } else {
                                         self.description = lastText
                                     }
                                 }
-                                
+                            
                             VStack {
                                 Spacer()
                                 HStack {
@@ -119,18 +114,18 @@ struct NewActivity: View {
                     }
                     else {
                         Section {
-                        DatePicker("Début", selection: $dateStart)
-                        DatePicker("Fin", selection: $dateEnd)
-                        Stepper("\(numberParticipants) participants max",
-                                value: $numberParticipants, in: 2...100)
-                    }
+                            DatePicker("Début", selection: $dateStart)
+                            DatePicker("Fin", selection: $dateEnd)
+                            Stepper("\(numberParticipants) participants max",
+                                    value: $numberParticipants, in: 2...100)
+                        }
                         ZStack {
                             TextEditor(text: $description)
                                 .foregroundColor(description == placeHolderDescription ? .gray : .primary)
                                 .padding(.horizontal)
                                 .cornerRadius(20)
                                 .background(RoundedRectangle(cornerRadius: 5).stroke(Color.black.opacity(0.5)))
-                                
+                            
                                 .onTapGesture {
                                     if self.description == placeHolderDescription {
                                         self.description = ""
@@ -138,14 +133,14 @@ struct NewActivity: View {
                                 }
                                 .onChange(of: description) { text in
                                     totalChars = text.count
-
+                                    
                                     if totalChars <= 400 {
                                         lastText = text
                                     } else {
                                         self.description = lastText
                                     }
                                 }
-                                
+                            
                             VStack {
                                 Spacer()
                                 HStack {
@@ -160,7 +155,7 @@ struct NewActivity: View {
                         }
                     }
                     
-                   
+                    
                 }
                 
                 if let image = loaderPicture.image {
@@ -211,6 +206,7 @@ struct NewActivity: View {
             .navigationBarTitleDisplayMode(.inline)
         }
     }
+    
     func createActivity() {
         var newActivity = Activity()
         newActivity.title = self.title
@@ -220,7 +216,7 @@ struct NewActivity: View {
         newActivity.dateStartActivity = self.dateStart
         newActivity.dateEndActivity = self.dateEnd
         newActivity.centerOfInterest = self.centerOfInterest
-       
+        
         user.activities.append(newActivity)
         activitiesViewModel.addActivity(newActivity)
         sendNewPost = true
@@ -242,7 +238,7 @@ struct NewActivity: View {
 struct NewActivity_Previews: PreviewProvider {
     static var previews: some View {
         NewActivity(user: CurrentUser(), activitiesViewModel: ActivitiesViewModel(), isPresented: .constant(true))
-//            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
-
+            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
+        
     }
 }

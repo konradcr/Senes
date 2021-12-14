@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfilOtherUserView: View {
+    @EnvironmentObject private var tabController: TabController
     @ObservedObject var currentUser: CurrentUser
     
     let user: Person
@@ -20,7 +21,7 @@ struct ProfilOtherUserView: View {
                     HStack {
                         Spacer()
                         Button("Contacter") {
-                            // action contact
+                            tabController.open(.messages)
                         }
                         .font(.body)
                         .buttonPrincipalStyle(colorBck: Color.greenContent, foregroundColor: Color.white)

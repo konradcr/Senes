@@ -24,18 +24,22 @@ struct Communaute: View {
         NavigationView {
             VStack {
                 ZStack {
-                    VStack{
-                        PostView(currentUser: currentUser, postsViewModel: postsViewModel, sendNewPost: sendNewPost, loaderPicture: $loaderPicture)
-
-                        List(postsViewModel.posts) { post in
+                    ScrollView {
+//                        PostView(currentUser: currentUser, postsViewModel: postsViewModel, sendNewPost: sendNewPost, loaderPicture: $loaderPicture)
+                        NewPostView(currentUser: currentUser, postsViewModel: postsViewModel)
+                        Divider()
+                        ForEach(postsViewModel.postsSorted, id:\.id) { post in
                             NavigationLink(destination:PostDetailView(post: post, currentUser: currentUser)) {
                                 ExtractPost(post: post)
-                                    .padding(.vertical)
+                                    
                             }
-                        }.listStyle(PlainListStyle())
+                        }
+                        .buttonStyle(.plain)
+                        .padding()
+//                        .listStyle(PlainListStyle())
                     }
                     
-                    VStack{
+                    VStack {
                         Spacer()
                         HStack {
                             Spacer()
@@ -73,6 +77,6 @@ struct Communaute_Previews: PreviewProvider {
     
     static var previews: some View {
         Communaute(currentUser: CurrentUser(), activitiesViewModel: ActivitiesViewModel(), postsViewModel: PostViewModel())
-            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
+//            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
     }
 }

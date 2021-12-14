@@ -22,3 +22,4 @@ struct Interest: Identifiable, Codable {
     let catImage : String
 }
 
+

@@ -25,31 +25,46 @@ struct ExtractPost: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            VStack{
-                HStack{
-                    Image(user.profilPic)
-                        .resizable()
-                        .frame(width: 50, height:50)
-                        .clipShape(Circle())
-                    VStack(alignment: .leading){
-                        Text(user.name)
-                            .fontWeight(.bold)
-                        
-                        Text(post.datePost.formatted(date: .abbreviated, time: .shortened))
-                            .foregroundColor(.gray)
+            HStack {
+                VStack {
+                    VStack {
+                        HStack{
+                            Image(user.profilPic)
+                                .resizable()
+                                .frame(width: 50, height:50)
+                                .clipShape(Circle())
+                            VStack(alignment: .leading){
+                                Text(user.name)
+                                    .fontWeight(.bold)
+                                
+                                Text(post.datePost.formatted(date: .abbreviated, time: .shortened))
+                                    .foregroundColor(.gray)
+                            }
+                            Spacer()
+                        }
                     }
+                    
+                    
+                    HStack {
+                        Text(post.description)
+                            .padding(.bottom)
+                        Spacer()
+                    }
+                    
+                    
                 }
+                Spacer()
             }
             
             
-            Text(post.description)
-                .padding(.bottom)
-            
             if let image = post.postImage {
-                Image(image)
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(20)
+                if image != "" {
+                    Image(image)
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(20)
+                }
+                
             }
         }
     }
