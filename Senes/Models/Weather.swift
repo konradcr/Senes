@@ -37,7 +37,7 @@ struct DayCondition: Codable {
         case unknow = "Unknow"
     }
     
-    func returnSFWeather(condition: Condition) -> String {
+    func returnSFWeather(condition: Condition) -> String? {
         switch condition {
         case .cloudy:
             return "cloud.fill"
@@ -50,7 +50,7 @@ struct DayCondition: Codable {
         case .mist:
             return "smoke.fill"
         case .unknow:
-            return ""
+            return nil
         }
     }
 }

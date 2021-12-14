@@ -76,8 +76,10 @@ struct ActivityInfo: View {
                                             .font(.title2)
                                     }
                                     Spacer()
-                                    Image(systemName: forecastDay.day.condition.returnSFWeather(condition: forecastDay.day.condition.text))
-                                        .font(.title)
+                                    if let weatherForecast = forecastDay.day.condition.returnSFWeather(condition: forecastDay.day.condition.text) {
+                                        Image(systemName: weatherForecast)
+                                            .font(.title)
+                                    }
                                 }
                             }
                            
@@ -162,6 +164,6 @@ struct ActivityInfo_Previews: PreviewProvider {
     static var previews: some View {
         ActivityInfo(currentUser: CurrentUser(), activity: activities[0])
             .environment(\.locale, Locale(identifier: "fr"))
-        //            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
+//                    .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
     }
 }
