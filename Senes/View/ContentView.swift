@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var isShowingOnboarding = true
+    @State var isShowingOnboarding = false
     @StateObject var currentUser = CurrentUser()
     @StateObject var activitiesViewModel = ActivitiesViewModel()
     @StateObject var postsViewModel = PostViewModel()

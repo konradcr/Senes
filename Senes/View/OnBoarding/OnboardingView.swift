@@ -40,7 +40,7 @@ struct OnBoardingView: View {
             )
         }
         .edgesIgnoringSafeArea(.all)
-        .tabViewStyle(PageTabViewStyle())
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
         
     }
 }

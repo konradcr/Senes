@@ -25,4 +25,6 @@ class ActivitiesViewModel: ObservableObject {
             $0.dateStartActivity > $1.dateStartActivity
         }
     }
+    
+    
 }

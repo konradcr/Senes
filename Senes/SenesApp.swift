@@ -18,6 +18,8 @@ struct SenesApp: App {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.greenAction]
         UITableView.appearance().backgroundColor = .white
         UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
+        UIPageControl.appearance().currentPageIndicatorTintColor = .greenAction
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor.greenAction.withAlphaComponent(0.2)
     }
 
     var body: some Scene {

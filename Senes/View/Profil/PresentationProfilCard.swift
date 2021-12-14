@@ -14,19 +14,24 @@ struct PresentationProfilCard: View {
     var body: some View {
         if sizeCategory > ContentSizeCategory.large {
             VStack(alignment: .center) {
-                Image(currentUser.profilPic)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .clipShape(Circle())
-                    .frame(width: 140)
-                    .shadow(radius: 7)
-                Image(systemName: currentUser.isCertified ? "checkmark.seal.fill" : "xmark.seal.fill")
-                    .foregroundColor(currentUser.isCertified ? Color.greenAction : .gray)
-                Text(currentUser.name)
-                    .bold()
-                    .font(.title)
-                Text(currentUser.city)
-                    .font(.title2)
+                HStack {
+                    Image(currentUser.profilPic)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(Circle())
+                        .frame(width: 140)
+                        .shadow(radius: 7)
+                    VStack {
+                        Image(systemName: currentUser.isCertified ? "checkmark.seal.fill" : "xmark.seal.fill")
+                            .foregroundColor(currentUser.isCertified ? Color.greenAction : .gray)
+                        Text(currentUser.name)
+                            .bold()
+                            .font(.title)
+                        Text(currentUser.city)
+                            .font(.title2)
+                    }
+                }
+                
                 
                 ForEach(currentUser.centersOfInterest, id:\.self) { interest in
                     CenterOfInterestTag(tag: interest)

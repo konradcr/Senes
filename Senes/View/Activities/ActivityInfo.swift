@@ -11,6 +11,8 @@ struct ActivityInfo: View {
     @Environment(\.dynamicTypeSize) var dynamicSize
     
     @ObservedObject var currentUser: CurrentUser
+    @State private var weather = Weather()
+    @State private var forecastDay = Forecastday()
     
     let activity: Activity
     
@@ -41,7 +43,9 @@ struct ActivityInfo: View {
                                 .foregroundColor(.white)
                                 .font(.title)
                                 Spacer()
-                                Button(action: {}) {
+                                Button(action: {
+                                    //
+                                }) {
                                     Image(systemName: "bell.fill")
                                         .font(.title)
                                 }
@@ -63,10 +67,20 @@ struct ActivityInfo: View {
                             .foregroundColor(.white)
                             .font(.title)
                             
-                            Text("Du " + activity.dateStartActivity.formatted(date: .abbreviated, time: .shortened))
-                                .font(.title2)
-                            Text("au " + activity.dateEndActivity.formatted(date: .abbreviated, time: .shortened))
-                                .font(.title2)
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    VStack {
+                                        Text("Du " + activity.dateStartActivity.formatted(date: .abbreviated, time: .shortened))
+                                            .font(.title2)
+                                        Text("au " + activity.dateEndActivity.formatted(date: .abbreviated, time: .shortened))
+                                            .font(.title2)
+                                    }
+                                    Spacer()
+                                    Image(systemName: forecastDay.day.condition.returnSFWeather(condition: forecastDay.day.condition.text))
+                                        .font(.title)
+                                }
+                            }
+                           
                         }
                         
                         Divider()
@@ -94,9 +108,8 @@ struct ActivityInfo: View {
                             Text(activity.description)
                                 .font(.title2)
                                 .padding(.bottom, 100)
-                           
+                            
                         }
-                        
                         
                     }.padding(.all,10)
                 }
@@ -117,8 +130,28 @@ struct ActivityInfo: View {
                 
             }.padding()
             
-        }.navigationBarTitle("\(activity.title)")
-            .navigationBarTitleDisplayMode(.inline)
+        }
+        .navigationBarTitle("\(activity.title)")
+        .navigationBarTitleDisplayMode(.inline)
+        .task {
+            await loadData(activity: activity)
+        }
+    }
+    
+    func loadData(activity: Activity) async {
+        guard let url = URL(string: "https://api.weatherapi.com/v1/forecast.json?key=2fb44da9222c49bc957101121211312&q=\(activity.location)&days=3&aqi=no&alerts=no") else {
+            print("Invalid URL")
+            return
+        }
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            if let decodedResponse = try? JSONDecoder().decode(Weather.self, from: data) {
+                weather = decodedResponse
+                forecastDay = activity.determineWeather(weather: decodedResponse)
+            }
+        } catch {
+            print("Invalid data")
+        }
     }
 }
 
@@ -129,6 +162,6 @@ struct ActivityInfo_Previews: PreviewProvider {
     static var previews: some View {
         ActivityInfo(currentUser: CurrentUser(), activity: activities[0])
             .environment(\.locale, Locale(identifier: "fr"))
-//            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
+        //            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
     }
 }

@@ -35,6 +35,7 @@
 		71292C502763C15500F93BE4 /* ActivitiesSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C442763C15500F93BE4 /* ActivitiesSegmentView.swift */; };
 		71292C512763C15500F93BE4 /* CertificationAsked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292C452763C15500F93BE4 /* CertificationAsked.swift */; };
 		714DFB872763D7D500DAA1F3 /* interests.json in Resources */ = {isa = PBXBuildFile; fileRef = 714DFB862763D7D500DAA1F3 /* interests.json */; };
+		715D8DC32768AD6A0017F2F2 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715D8DC22768AD690017F2F2 /* Weather.swift */; };
 		71BEFF872763AF4F00BF197F /* SenesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BEFF862763AF4F00BF197F /* SenesApp.swift */; };
 		71BEFF8B2763AF5200BF197F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71BEFF8A2763AF5200BF197F /* Assets.xcassets */; };
 		71BEFF8E2763AF5200BF197F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71BEFF8D2763AF5200BF197F /* Preview Assets.xcassets */; };
@@ -90,6 +91,7 @@
 		71292C442763C15500F93BE4 /* ActivitiesSegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesSegmentView.swift; sourceTree = "<group>"; };
 		71292C452763C15500F93BE4 /* CertificationAsked.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificationAsked.swift; sourceTree = "<group>"; };
 		714DFB862763D7D500DAA1F3 /* interests.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = interests.json; sourceTree = "<group>"; };
+		715D8DC22768AD690017F2F2 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		71BEFF832763AF4F00BF197F /* Senes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Senes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71BEFF862763AF4F00BF197F /* SenesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenesApp.swift; sourceTree = "<group>"; };
 		71BEFF8A2763AF5200BF197F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				7127E66F2766223B00842900 /* Activity.swift */,
+				715D8DC22768AD690017F2F2 /* Weather.swift */,
 				7127E675276622BC00842900 /* Chat.swift */,
 				7127E6732766227D00842900 /* Interest.swift */,
 				7127E677276622D100842900 /* Message.swift */,
@@ -402,6 +405,7 @@
 				71292C502763C15500F93BE4 /* ActivitiesSegmentView.swift in Sources */,
 				71292C372763C05A00F93BE4 /* MessagerieView.swift in Sources */,
 				71BEFFBD2763AF8000BF197F /* PageView .swift in Sources */,
+				715D8DC32768AD6A0017F2F2 /* Weather.swift in Sources */,
 				71BEFFC92763AF8000BF197F /* ImagePicker.swift in Sources */,
 				71BEFFB72763AF8000BF197F /* Communaute.swift in Sources */,
 				7127E67D27664FC300842900 /* ActivitiesViewModel.swift in Sources */,

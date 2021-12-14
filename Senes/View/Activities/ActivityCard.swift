@@ -19,19 +19,21 @@ struct ActivityCard: View {
                 .aspectRatio(contentMode: .fit)
             
             if sizeCategory > DynamicTypeSize.large {
-               
+                
                 HStack {
                     VStack(alignment: .leading) {
-                            Text(activity.title)
-                                .font(.title)
-                                .bold()
-                                .lineLimit(nil)
-                                .fixedSize(horizontal: false, vertical: true)
-                            Text(activity.dateStartActivity.formatted(date: .abbreviated, time: .omitted))
-                            Text(activity.dateStartActivity.formatted(date: .omitted, time: .shortened))
-                            Text(activity.location)
-                        }
+                        Text(activity.title)
+                            .font(.title)
+                            .bold()
+                            .lineLimit(nil)
+                            .fixedSize(horizontal: false, vertical: true)
+                        Text(activity.dateStartActivity.formatted(date: .abbreviated, time: .omitted))
+                        Text(activity.dateStartActivity.formatted(date: .omitted, time: .shortened))
+                        Text(activity.location)
+                        
+                    }
                     .padding()
+                    Spacer()
                 }
             } else {
                 HStack {
@@ -68,6 +70,6 @@ struct ActivityCard_Previews: PreviewProvider {
                 .environment(\.locale, Locale(identifier: "fr"))
         }
         
-            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
+        .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
     }
 }

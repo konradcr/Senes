@@ -23,4 +23,33 @@ struct Activity: Identifiable, Codable, Equatable {
     static func ==(lhs: Activity, rhs: Activity) -> Bool {
         return lhs.id == rhs.id
     }
+    
+    var isForecastAvailable: Bool {
+        let now = Date()
+        let dayIn3Days = now.addingTimeInterval(24.0 * 3600.0 * 3)
+        let dateInterval = DateInterval(start: now, end: dayIn3Days)
+        if dateInterval.contains(dateStartActivity) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    var dateActivityFormatted: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: dateStartActivity)
+        
+    }
+    
+    
+    func determineWeather(weather: Weather) -> Forecastday {
+        var forecastDay = Forecastday()
+        if isForecastAvailable {
+            if let result = weather.forecast.forecastday.filter({ $0.date == self.dateActivityFormatted }).first {
+                forecastDay = result
+            }
+        }
+        return forecastDay
+    }
 }
