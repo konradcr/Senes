@@ -93,7 +93,7 @@ struct ImageModifierWhitGeo: ViewModifier {
             .scaledToFit()
             .frame(maxWidth: geo.size.width / 6)
             .clipShape(Circle())
-            .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 0)
+            .shadow(color: Color.black.opacity(0.1), radius: 20, x: 0, y: 0)
     }
 }
 

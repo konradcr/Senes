@@ -62,6 +62,7 @@
 		71BEFFC82763AF8000BF197F /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BEFFB12763AF8000BF197F /* Decoder.swift */; };
 		71BEFFC92763AF8000BF197F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BEFFB22763AF8000BF197F /* ImagePicker.swift */; };
 		71BEFFCA2763AF8000BF197F /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BEFFB32763AF8000BF197F /* Modifier.swift */; };
+		71C6B00B276A01BC002E60B4 /* NewPrivateMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C6B00A276A01BC002E60B4 /* NewPrivateMessageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +122,7 @@
 		71BEFFB12763AF8000BF197F /* Decoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
 		71BEFFB22763AF8000BF197F /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		71BEFFB32763AF8000BF197F /* Modifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
+		71C6B00A276A01BC002E60B4 /* NewPrivateMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPrivateMessageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +238,7 @@
 				71292C362763C05A00F93BE4 /* Messagerie.swift */,
 				71292C352763C05A00F93BE4 /* MessagerieRow.swift */,
 				71292C342763C05A00F93BE4 /* MessagerieView.swift */,
+				71C6B00A276A01BC002E60B4 /* NewPrivateMessageView.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				71292C462763C15500F93BE4 /* CertificationView.swift in Sources */,
 				7127E67A2766231900842900 /* Person.swift in Sources */,
 				71292C512763C15500F93BE4 /* CertificationAsked.swift in Sources */,
+				71C6B00B276A01BC002E60B4 /* NewPrivateMessageView.swift in Sources */,
 				7127E6702766223B00842900 /* Activity.swift in Sources */,
 				71292C4A2763C15500F93BE4 /* AskingCertificationView.swift in Sources */,
 				71BEFFBA2763AF8000BF197F /* PostView.swift in Sources */,

@@ -96,7 +96,7 @@ struct ActivitiesView_Previews: PreviewProvider {
     
     static var previews: some View {
         ActivitiesView(currentUser: CurrentUser(), activitiesViewModel: ActivitiesViewModel(), interests: interests)
-            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
+//            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
 
     }
 }

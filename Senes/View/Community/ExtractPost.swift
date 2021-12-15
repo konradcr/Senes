@@ -46,6 +46,9 @@ struct ExtractPost: View {
                     
                     
                     HStack {
+//                        if post.description.count > 300 {
+//                            
+//                        }
                         Text(post.description)
                             .padding(.bottom)
                         Spacer()

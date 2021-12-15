@@ -25,7 +25,7 @@ struct ActivityInfo: View {
                 .padding(10)
             
             ZStack {
-                RoundedRectangle(cornerRadius: 22)
+                RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(.greenContent)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 
@@ -76,7 +76,6 @@ struct ActivityInfo: View {
                                     }
                                 }
                             }
-                           
                         }
                         
                         Divider()
@@ -86,7 +85,7 @@ struct ActivityInfo: View {
                                 if dynamicSize <= DynamicTypeSize.large {
                                     Image(systemName: "person.3.fill")
                                 }
-                                Text("Partcipants max : \(activity.numberParticipants)")
+                                Text("Participants max : \(activity.numberParticipants)")
                                     .bold()
                             }
                             .foregroundColor(.white)
@@ -107,24 +106,31 @@ struct ActivityInfo: View {
                             
                         }
                         
-                    }.padding(.all,10)
+                    }
+                    .padding(.all,10)
                 }
                 
                 VStack {
                     Spacer()
-                    Button(currentUser.isParticipating(activity: activity) ? "Ne plus participer" : "Participer") {
+                    Button {
                         if currentUser.isParticipating(activity: activity) {
                             currentUser.unparticipateToActivity(activity: activity)
                         } else {
                             currentUser.participateToActivity(activity: activity)
                         }
+                    } label: {
+                        Text(currentUser.isParticipating(activity: activity) ? "Ne plus participer" : "Participer")
+                            .frame(width: 160)
                     }
                     .reduceDynamicSize()
                     .buttonPrincipalStyle(colorBck: currentUser.isParticipating(activity: activity) ? Color.red.opacity(0.6) : Color.greenAction, foregroundColor: Color.white)
+                    
+//                    .fixedSize(horizontal: true, vertical: false)
                     .padding()
                 }
                 
-            }.padding()
+            }
+            .padding(10)
             
         }
         .navigationBarTitle("\(activity.title)")

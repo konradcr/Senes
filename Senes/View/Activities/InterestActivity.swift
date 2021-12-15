@@ -40,14 +40,16 @@ struct InterestActivity: View {
     }
 
     var body: some View {
-        List {
+        ScrollView {
             ForEach(filteredActivity) { activity in
                 NavigationLink(destination: ActivityInfo(currentUser: currentUser, activity: activity)){
                     ActivityCard(activity: activity)
                 }
                 
                 
-            }.listRowSeparator(.hidden)
+            }
+            .buttonStyle(.plain)
+
             .navigationBarTitle("\(interest.rawValue)")
             .navigationBarTitleDisplayMode(.inline)
             
@@ -63,7 +65,7 @@ struct InterestActivity_Previews: PreviewProvider {
     static var previews: some View {
         InterestActivity(currentUser: CurrentUser(), activities: activities, interest: .arts)
             .environment(\.locale, Locale(identifier: "fr"))
-            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
+//            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
     }
 }
 

@@ -42,6 +42,7 @@ struct AskingCertificationView: View {
                             Text("Ajouter une photo de moi")
                         }
                     }
+                    .frame(maxWidth: 300)
                     .buttonImportMediaStyle(
                         backgroundColor: selfie != nil ? Color.greenContent : .grayBackground,
                         foregroundColor: selfie != nil ? .white : .gray
@@ -56,6 +57,7 @@ struct AskingCertificationView: View {
                             Text("Ajouter une pièce d'identité")
                         }
                     }
+                    .frame(maxWidth: 300)
                     .buttonImportMediaStyle(
                         backgroundColor: imageID != nil ? Color.greenContent : .grayBackground,
                         foregroundColor: imageID != nil ? .white : .gray

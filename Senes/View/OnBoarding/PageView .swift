@@ -65,7 +65,6 @@ struct PageView : View {
                         .frame(width: 200, height: 50)
                         .background(Color.greenAction)
                         .cornerRadius(10)
-                    
                 })
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -83,7 +82,7 @@ struct PageView_Previews: PreviewProvider {
                  , title: "Push Notifs",
                  subtitle: "Enable Notifs",
                  image: "discussion",
-                 showDismissButon:false,
+                 showDismissButon:true,
                  color: Color.grisContent)
     }
 }

@@ -69,6 +69,7 @@ struct InscriptionView: View {
                                     .scaledToFill()
                                     .frame(minWidth: 0, maxWidth: .infinity)
                                     .frame(height:130)
+                                    .opacity(interestsChoosed.contains(i.category) ? 1 : 0.6)
                                     .overlay(
                                         RoundedRectangle(cornerRadius: 20)
                                             .stroke(interestsChoosed.contains(i.category) ? Color.greenAction : .clear, lineWidth: 10)
@@ -83,8 +84,18 @@ struct InscriptionView: View {
                         }
                     }
                 }
-                Button(action: { createUser() } ) {
-                    Text("S'inscrire")
+                HStack {
+                    Spacer()
+                    Button(action: { createUser() } ) {
+                        Text("S'inscrire")
+                            .font(.title)
+                            .bold()
+                            .foregroundColor(Color.white)
+                            .frame(width: 200, height: 50)
+                            .background(Color.greenAction)
+                            .cornerRadius(10)
+                    }
+                    Spacer()
                 }
                 
                 
@@ -92,17 +103,27 @@ struct InscriptionView: View {
                 ImagePicker(inputImage: $profilPic, sourceType: .photoLibrary)
             }
             .navigationTitle("Bienvenue sur Senes !")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        currentUser.fakeInscription()
+                        isShowingInscription = false
+                    } label: {
+                        Text("Passer")
+                    }
+                }
+            }
             
         }
         
         
     }
     func createUser() {
-//        currentUser.name = nom
-//        currentUser.city = ville
-//        currentUser.centersOfInterest = interestsChoosed
-//        currentUser.description = description
-        currentUser.fakeInscription()
+        currentUser.name = nom
+        currentUser.city = ville
+        currentUser.centersOfInterest = interestsChoosed
+        currentUser.description = description
+        
         isShowingInscription = false
     }
 }

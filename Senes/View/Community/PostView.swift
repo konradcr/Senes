@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct PostView: View {
-    
+    @EnvironmentObject private var tabController: TabController
     @ObservedObject var currentUser: CurrentUser
     @ObservedObject var postsViewModel: PostViewModel
     
@@ -34,10 +34,19 @@ struct PostView: View {
     var body: some View {
         GeometryReader { geo in
             HStack {
-                Spacer()
-                Image(currentUser.profilPic)
-                    .resizable()
-                    .modifierForImageWithGeo(geo: geo)
+                
+                VStack {
+                    Button {
+                        tabController.open(.profil)
+                    } label: {
+                        Image(currentUser.profilPic)
+                            .resizable()
+                        .modifierForImageWithGeo(geo: geo)
+                        .padding(.top)
+                    }
+                    .buttonStyle(.plain)
+                    Spacer()
+                }
                 
                 VStack{
                     TextView(textDescription: $description)
@@ -58,7 +67,7 @@ struct PostView: View {
 //                        .modifierForButonWithGeo(colorBck: colorbtnIfIsValidColor, foregroundColor: .white, geo: geo)
                         .disabled(isValid)
                         
-                        Spacer()
+                       
                         
                         Button {
                             
@@ -79,7 +88,6 @@ struct PostView: View {
                         .reduceDynamicSize()
                         .buttonPrincipalStyle(colorBck: Color.white, foregroundColor: .black)
                         
-                        Spacer()
                     }
                 }
             }

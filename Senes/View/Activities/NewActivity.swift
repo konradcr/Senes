@@ -238,7 +238,7 @@ struct NewActivity: View {
 struct NewActivity_Previews: PreviewProvider {
     static var previews: some View {
         NewActivity(user: CurrentUser(), activitiesViewModel: ActivitiesViewModel(), isPresented: .constant(true))
-            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
+//            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
         
     }
 }

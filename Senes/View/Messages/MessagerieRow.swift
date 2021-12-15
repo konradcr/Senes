@@ -70,6 +70,6 @@ struct MessagerieRow: View {
 struct MessagerieRow_Previews: PreviewProvider {
     static var previews: some View {
         MessagerieRow(chat: Chat.sampleChat[2])
-            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
+//            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
     }
 }

@@ -18,7 +18,7 @@ struct OnBoardingView: View {
                 currentUser: currentUser, isShowingOnboarding: $isShowingOnboarding,
                 title: "Rencontrez et partagez ",
                 subtitle: "Votre prochain camarade de belotte est peut-être moins loin que vous ne le croyez ! ",
-                image: "avatars",
+                image: "avatars-1",
                 showDismissButon:false,
                 color: Color.grisContent
             )
@@ -26,7 +26,7 @@ struct OnBoardingView: View {
                 currentUser: currentUser, isShowingOnboarding: $isShowingOnboarding,
                 title: "Discutez ! ",
                 subtitle: "Notre messagerie simple permet de vous rapprocher de n'importe quel passioné en un rien de temps.",
-                image:"discussion" ,
+                image:"discussion-1" ,
                 showDismissButon:false,
                 color: Color.grisContent
             )
@@ -44,10 +44,6 @@ struct OnBoardingView: View {
         
     }
 }
-
-
-
-
 
 
 struct OnBoardingView_Previews: PreviewProvider {

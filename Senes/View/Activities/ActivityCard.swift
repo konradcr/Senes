@@ -66,10 +66,10 @@ struct ActivityCard_Previews: PreviewProvider {
     
     static var previews: some View {
         List {
-            ActivityCard(activity: activities[0])
+            ActivityCard(activity: activities[4])
                 .environment(\.locale, Locale(identifier: "fr"))
         }
         
-        .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
+//        .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
     }
 }
