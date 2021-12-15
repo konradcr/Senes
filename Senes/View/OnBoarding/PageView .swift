@@ -69,7 +69,7 @@ struct PageView : View {
                 })
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(color)
+            .background(.white)
             .fullScreenCover(isPresented: $isShowingInscription, onDismiss: { isShowingOnboarding = false }) {
                 InscriptionView(currentUser: currentUser, isShowingInscription: $isShowingInscription)
             }

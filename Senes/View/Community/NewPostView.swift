@@ -73,23 +73,34 @@ struct NewPostView: View {
             }
             HStack {
                 Spacer()
-                Button { } label: {
-                    Image(systemName: "camera")
-                }
-                .font(.title3)
-                .buttonPrincipalStyle(colorBck: .white, foregroundColor: .black)
-                .padding(.horizontal)
-
-                Button("Poster") {
-                    createNewPost()
+                HStack {
                     
-                }
-                .font(.title3)
-                .buttonPrincipalStyle(colorBck: Color.greenAction, foregroundColor: .white)
-                .padding(.horizontal)
-                .padding(.trailing)
+                    Button {
+                        loaderPicture.sourceType = .photoLibrary
+                        loaderPicture.isImagePickerShown = true
+                    } label: {
+                        Image(systemName: "camera")
+                    }
+                    .font(.title3)
+                    .frame(maxWidth: .infinity)
+                    .buttonPrincipalStyle(colorBck: .white, foregroundColor: .black)
+                    .padding(.horizontal)
+
+                    Button("Poster") {
+                        createNewPost()
+                        
+                    }
+                    .font(.title3)
+                    .frame(maxWidth: .infinity)
+                    .buttonPrincipalStyle(colorBck: Color.greenAction, foregroundColor: .white)
+                    .padding(.horizontal)
+                    
+                }.fixedSize(horizontal: false, vertical: true)
             }
-        }.padding()
+        }
+        .padding()
+        .sheet(isPresented: $loaderPicture.isImagePickerShown, onDismiss: loadImage) {
+            ImagePicker(inputImage: self.$loaderPicture.inputImage, sourceType: self.loaderPicture.sourceType) }
     }
     
     func createNewPost() {
@@ -104,6 +115,11 @@ struct NewPostView: View {
         text = placeHolder
         loaderPicture.image = nil
 //        UIApplication.shared.endEditing()
+    }
+    
+    func loadImage() {
+        guard let inputImage = loaderPicture.inputImage else { return }
+        loaderPicture.image = Image(uiImage: inputImage)
     }
 }
 

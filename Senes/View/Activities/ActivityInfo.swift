@@ -43,12 +43,6 @@ struct ActivityInfo: View {
                                 .foregroundColor(.white)
                                 .font(.title)
                                 Spacer()
-                                Button(action: {
-                                    //
-                                }) {
-                                    Image(systemName: "bell.fill")
-                                        .font(.title)
-                                }
                             }
                             Text(activity.location)
                                 .font(.title2)

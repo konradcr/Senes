@@ -25,8 +25,8 @@ struct Communaute: View {
             VStack {
                 ZStack {
                     ScrollView {
-//                        PostView(currentUser: currentUser, postsViewModel: postsViewModel, sendNewPost: sendNewPost, loaderPicture: $loaderPicture)
-                        NewPostView(currentUser: currentUser, postsViewModel: postsViewModel)
+                        PostView(currentUser: currentUser, postsViewModel: postsViewModel, sendNewPost: sendNewPost, loaderPicture: $loaderPicture)
+//                        NewPostView(currentUser: currentUser, postsViewModel: postsViewModel)
                         Divider()
                         ForEach(postsViewModel.postsSorted, id:\.id) { post in
                             NavigationLink(destination:PostDetailView(post: post, currentUser: currentUser)) {
