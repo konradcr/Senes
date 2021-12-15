@@ -39,7 +39,6 @@ struct Activity: Identifiable, Codable, Equatable {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter.string(from: dateStartActivity)
-        
     }
     
     

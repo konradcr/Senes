@@ -11,6 +11,7 @@ struct Messagerie: View {
     @StateObject var viewModel = MessagerieViewModel()
     @ObservedObject var currentUser: CurrentUser
     @State private var query = ""
+    @State private var isWritingNewMessage: Bool = false
     
     var body: some View {
         NavigationView {
@@ -50,10 +51,16 @@ struct Messagerie: View {
             .navigationTitle("Messagerie")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {} label: {
+                    Button {
+                        isWritingNewMessage = true
+                    } label: {
                         Image(systemName: "square.and.pencil")
                     }
                 }
+            }
+            .sheet(isPresented: $isWritingNewMessage) {
+                NewPrivateMessageView(currentUser: currentUser, isWritingNewMessage: $isWritingNewMessage)
+                    .environmentObject(viewModel)
             }
         }
     }

@@ -13,13 +13,13 @@ struct PostView: View {
     @ObservedObject var currentUser: CurrentUser
     @ObservedObject var postsViewModel: PostViewModel
     
-    @State var description: String = "Ecrit un message..."
+    @State var description: String = "Écrit un message..."
     
     @State var sendNewPost: Bool = false
     @Binding var loaderPicture: LoaderPicture
     
     var isValid : Bool {
-        return description == "Ecrit un message..."
+        return description == "Écrit un message..."
     }
     
     var colorbtnIfIsValidColor: Color {
@@ -27,7 +27,7 @@ struct PostView: View {
     }
     
     var resizer : CGFloat {
-        description != "Ecrit un message..." ? 3 : 6
+        description != "Écrit un message..." ? 3 : 6
     }
     
     
@@ -78,17 +78,16 @@ struct PostView: View {
                             if let sImage = loaderPicture.image {
                                 sImage
                                     .resizable()
-                                    .modifier(ImageModifier())
+                                    .scaledToFit()
                             } else {
                                 Image(systemName: "camera.fill")
-                                    .resizable()
-                                    .modifier(ImageModifier())
                             }
                         }
                         .reduceDynamicSize()
                         .buttonPrincipalStyle(colorBck: Color.white, foregroundColor: .black)
                         
                     }
+                    .padding(.trailing)
                 }
             }
         }
@@ -98,8 +97,7 @@ struct PostView: View {
                 title: Text("✅ Envoyé !"),
                 message: Text("\nVotre post a bien était envoyé sur le fil")
             )
-        }.padding()
-        
+        }
     }
     
     func createNewPost() {
@@ -111,7 +109,7 @@ struct PostView: View {
         
         sendNewPost = true
         
-        description = "Ecrit un message..."
+        description = "Écrit un message..."
         loaderPicture.image = nil
         UIApplication.shared.endEditing()
     }

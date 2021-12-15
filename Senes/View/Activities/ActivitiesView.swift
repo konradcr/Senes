@@ -14,7 +14,7 @@ struct ActivitiesView: View {
     @ObservedObject var activitiesViewModel: ActivitiesViewModel
     
     @State private var isAddingNewActivity = false
-    @State var sendNewPost: Bool = false
+    @State var sendNewActivity: Bool = false
     
     let interests : [Interest]
     
@@ -81,7 +81,7 @@ struct ActivitiesView: View {
             .navigationTitle("Activités")
             .sheet(isPresented: $isAddingNewActivity) {
                 NewActivity(user: currentUser, activitiesViewModel: activitiesViewModel, isPresented: $isAddingNewActivity) }
-            .alert("Votre post a bien eté envoyé sur le fil", isPresented: $sendNewPost) {
+            .alert("Votre post a bien eté envoyé sur le fil", isPresented: $sendNewActivity) {
                 Button("OK", role: .cancel) { }
             }
         }
