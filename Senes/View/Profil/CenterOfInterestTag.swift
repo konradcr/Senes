@@ -19,11 +19,11 @@ struct CenterOfInterestTag: View {
         case .arts:
             return Color.purple
         case .jardinage:
-            return Color.green
+            return Color.red
         case .sport:
             return Color.blue
         case .literature:
-            return Color.yellow
+            return Color.orange
         }
     }
     
@@ -33,7 +33,7 @@ struct CenterOfInterestTag: View {
             .padding(.vertical, 10)
             .padding(.horizontal)
             .foregroundColor(.white)
-            .background(colorInterest.opacity(0.5))
+            .background(colorInterest.opacity(0.7))
             .clipShape(Capsule())
     }
     
@@ -42,6 +42,6 @@ struct CenterOfInterestTag: View {
 
 struct CenterOfInterestTag_Previews: PreviewProvider {
     static var previews: some View {
-        CenterOfInterestTag(tag: .arts)
+        CenterOfInterestTag(tag: .jardinage)
     }
 }

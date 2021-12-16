@@ -32,8 +32,8 @@ extension Chat {
 
         
         Chat(id: "04e4d2ce-5992-11ec-bf63-0242ac130002", messages: [
-            Message("Hey ça faisait longtemps, à quand un petit apéro sympa alors ?!", type: .Sent, date: Date(timeIntervalSinceNow: -86400 * 4)),
-            Message("Mais quand tu veux Gégé, on se dit ce weekend ?", type: .Received, date: Date(timeIntervalSinceNow: -86400 * 4)),
+            Message("Hey ça faisait longtemps, à quand un petit apéro sympa alors ?!", type: .Sent, date: Date(timeIntervalSinceNow: -86400 * 11)),
+            Message("Mais quand tu veux Gégé, on se dit ce weekend ?", type: .Received, date: Date(timeIntervalSinceNow: -86400 * 11)),
             
         ]),
         

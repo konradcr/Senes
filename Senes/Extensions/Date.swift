@@ -18,10 +18,10 @@ extension Date {
         let daysBetween = self.daysBetween(date: Date())
         
         if daysBetween == 0 {
-            return "Today"
+            return "Aujourd'hui"
         }
         else if daysBetween == 1 {
-            return "Yesterday"
+            return "Hier"
         }
         else if daysBetween < 5 {
             let weekdayIndex = Calendar.current.component(.weekday, from: self) - 1

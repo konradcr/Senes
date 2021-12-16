@@ -53,6 +53,7 @@ struct ContentView: View {
             }
             .environmentObject(tabController)
             .accentColor(Color.greenAction)
+
         }
     }
 }

@@ -45,6 +45,7 @@ struct MessagerieRow: View {
                             Spacer()
                             
                             Text(chat.messages.last?.sentTime.descriptiveString() ?? "")
+                                .environment(\.locale, Locale(identifier: "fr"))
                         }
                         HStack {
                             Text(chat.messages.last?.text ?? "")
@@ -70,6 +71,7 @@ struct MessagerieRow: View {
 struct MessagerieRow_Previews: PreviewProvider {
     static var previews: some View {
         MessagerieRow(chat: Chat.sampleChat[2])
+            
 //            .environment(\.sizeCategory, .accessibilityExtraExtraLarge)
     }
 }
